@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  name         String?
+  basiqUserId  String?   @unique @map("basiq_user_id") @db.VarChar(64)
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  sessions     Session[]
+  accounts     BasiqAccount[]
+  transactions BasiqTransaction[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String   @map("user_id")
+  expiresAt DateTime @map("expires_at") @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "idx_sessions_user_id")
+  @@index([expiresAt], map: "idx_sessions_expires_at")
+  @@map("sessions")
+}
+
+/// Bank accounts owned by a MoneyMap user. basiqUserId is the external Basiq id only.
+model BasiqAccount {
+  accountId        String             @id @map("account_id") @db.VarChar(64)
+  ownerUserId      String             @map("owner_user_id")
+  basiqUserId      String             @map("basiq_user_id") @db.VarChar(64)
+  name             String?
+  type             String?            @db.VarChar(64)
+  balance          Decimal?           @db.Decimal(19, 4)
+  availableBalance Decimal?           @map("available_balance") @db.Decimal(19, 4)
+  currency         String             @default("AUD") @db.Char(3)
+  ingestedAt       DateTime           @default(now()) @map("ingested_at") @db.Timestamptz(6)
+  updatedAt        DateTime           @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  owner            User               @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  transactions     BasiqTransaction[]
+
+  @@index([ownerUserId], map: "idx_basiq_accounts_owner_user_id")
+  @@index([ownerUserId, accountId], map: "idx_basiq_accounts_owner_account")
+  @@index([basiqUserId], map: "idx_basiq_accounts_basiq_user_id")
+  @@map("basiq_accounts")
+}
+
+/// Transactions denormalize ownerUserId for fast tenant filters + RLS.
+model BasiqTransaction {
+  transactionId String       @id @map("transaction_id") @db.VarChar(64)
+  ownerUserId   String       @map("owner_user_id")
+  accountId     String       @map("account_id") @db.VarChar(64)
+  amount        Decimal      @db.Decimal(19, 4)
+  direction     String       @db.VarChar(16)
+  postDate      DateTime?    @map("post_date") @db.Timestamptz(6)
+  status        String?      @db.VarChar(32)
+  rawPayload    Json         @map("raw_payload")
+  ingestedAt    DateTime     @default(now()) @map("ingested_at") @db.Timestamptz(6)
+  updatedAt     DateTime     @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  owner         User         @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  account       BasiqAccount @relation(fields: [accountId], references: [accountId], onUpdate: Cascade, onDelete: Restrict)
+
+  @@index([ownerUserId, postDate(sort: Desc)], map: "idx_basiq_transactions_owner_post_date")
+  @@index([ownerUserId, accountId, postDate(sort: Desc)], map: "idx_basiq_transactions_owner_account_post_date")
+  @@index([accountId], map: "idx_basiq_transactions_account_id")
+  @@index([status], map: "idx_basiq_transactions_status")
+  @@map("basiq_transactions")
+}

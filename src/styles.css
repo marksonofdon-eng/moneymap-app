@@ -1,0 +1,175 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  /* Traffic light tokens */
+  --color-tl-blue: var(--tl-blue);
+  --color-tl-green: var(--tl-green);
+  --color-tl-yellow: var(--tl-yellow);
+  --color-tl-orange: var(--tl-orange);
+  --color-tl-red: var(--tl-red);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --font-display: "Inter", "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.875rem;
+  /* MoneyMap Premium Midnight */
+  --background: #0E0F12;
+  --surface: #16171C;
+  --foreground: #F5F5F7;
+  --card: #16171C;
+  --card-foreground: #F5F5F7;
+  --popover: #16171C;
+  --popover-foreground: #F5F5F7;
+  --primary: #00E676;
+  --primary-foreground: #0E0F12;
+  --secondary: #1F2127;
+  --secondary-foreground: #F5F5F7;
+  --muted: #1B1D22;
+  --muted-foreground: #8E8E93;
+  --accent: #00E676;
+  --accent-foreground: #0E0F12;
+  --destructive: #FF1744;
+  --destructive-foreground: #ffffff;
+  --success: #00E676;
+  --warning: #FFD600;
+  --border: rgba(255,255,255,0.06);
+  --input: rgba(255,255,255,0.10);
+  --ring: rgba(0,230,118,0.5);
+
+  /* 5-Colour Traffic Light Engine */
+  --tl-blue: #00E5FF;
+  --tl-green: #00E676;
+  --tl-yellow: #FFD600;
+  --tl-orange: #FF9100;
+  --tl-red: #FF1744;
+
+  --chart-1: #00E676;
+  --chart-2: #00E5FF;
+  --chart-3: #FFD600;
+  --chart-4: #FF9100;
+  --chart-5: #FF1744;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+}
+
+@utility glow-green {
+  box-shadow: 0 0 0 1px rgba(0,230,118,0.35), 0 14px 50px -12px rgba(0,230,118,0.45);
+}
+
+@utility glow-blue {
+  box-shadow: 0 0 0 1px rgba(0,229,255,0.30), 0 14px 50px -12px rgba(0,229,255,0.40);
+}
+
+@utility page-hero-glow {
+  background:
+    radial-gradient(60% 60% at 50% 0%, color-mix(in oklab, var(--tl-green) 10%, transparent), transparent 60%),
+    radial-gradient(40% 50% at 80% 20%, color-mix(in oklab, var(--tl-blue) 8%, transparent), transparent 70%);
+}
+
+@utility badge-blue {
+  border: 1px solid color-mix(in oklab, var(--tl-blue) 35%, transparent);
+  background: color-mix(in oklab, var(--tl-blue) 8%, transparent);
+  color: var(--tl-blue);
+}
+
+@utility eyebrow-blue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--tl-blue);
+}
+
+@utility glow-yellow {
+  box-shadow: 0 0 0 1px rgba(255,214,0,0.30), 0 14px 50px -12px rgba(255,214,0,0.35);
+}
+
+@keyframes hero-stat-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@utility pulse-dot {
+  position: relative;
+}
+@utility pulse-dot {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 0 currentColor;
+    animation: pulse-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 currentColor; opacity: 0.7; }
+  70% { box-shadow: 0 0 0 10px transparent; opacity: 0; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 0; }
+}
