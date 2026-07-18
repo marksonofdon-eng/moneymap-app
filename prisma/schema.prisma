@@ -9,17 +9,23 @@ datasource db {
 }
 
 model User {
-  id           String    @id @default(cuid())
-  email        String    @unique
-  passwordHash String    @map("password_hash")
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
   name         String?
-  basiqUserId  String?   @unique @map("basiq_user_id") @db.VarChar(64)
-  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt    DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  basiqUserId  String?  @unique @map("basiq_user_id") @db.VarChar(64)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  sessions     Session[]
-  accounts     BasiqAccount[]
-  transactions BasiqTransaction[]
+  sessions              Session[]
+  accounts              BasiqAccount[]
+  transactions          BasiqTransaction[]
+  detectedBills         DetectedBill[]
+  billEvidence          BillEvidence[]
+  addresses             UserAddress[]
+  needProfiles          UserNeedProfile[]
+  capabilityAssessments AddressCapabilityAssessment[]
+  accessOptions         AddressAccessOption[]
 
   @@map("users")
 }
@@ -31,7 +37,7 @@ model Session {
   expiresAt DateTime @map("expires_at") @db.Timestamptz(6)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
 
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId], map: "idx_sessions_user_id")
   @@index([expiresAt], map: "idx_sessions_expires_at")
@@ -40,19 +46,19 @@ model Session {
 
 /// Bank accounts owned by a MoneyMap user. basiqUserId is the external Basiq id only.
 model BasiqAccount {
-  accountId        String             @id @map("account_id") @db.VarChar(64)
-  ownerUserId      String             @map("owner_user_id")
-  basiqUserId      String             @map("basiq_user_id") @db.VarChar(64)
+  accountId        String   @id @map("account_id") @db.VarChar(64)
+  ownerUserId      String   @map("owner_user_id")
+  basiqUserId      String   @map("basiq_user_id") @db.VarChar(64)
   name             String?
-  type             String?            @db.VarChar(64)
-  balance          Decimal?           @db.Decimal(19, 4)
-  availableBalance Decimal?           @map("available_balance") @db.Decimal(19, 4)
-  currency         String             @default("AUD") @db.Char(3)
-  ingestedAt       DateTime           @default(now()) @map("ingested_at") @db.Timestamptz(6)
-  updatedAt        DateTime           @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  type             String?  @db.VarChar(64)
+  balance          Decimal? @db.Decimal(19, 4)
+  availableBalance Decimal? @map("available_balance") @db.Decimal(19, 4)
+  currency         String   @default("AUD") @db.Char(3)
+  ingestedAt       DateTime @default(now()) @map("ingested_at") @db.Timestamptz(6)
+  updatedAt        DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  owner            User               @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
-  transactions     BasiqTransaction[]
+  owner        User               @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  transactions BasiqTransaction[]
 
   @@index([ownerUserId], map: "idx_basiq_accounts_owner_user_id")
   @@index([ownerUserId, accountId], map: "idx_basiq_accounts_owner_account")
@@ -62,23 +68,298 @@ model BasiqAccount {
 
 /// Transactions denormalize ownerUserId for fast tenant filters + RLS.
 model BasiqTransaction {
-  transactionId String       @id @map("transaction_id") @db.VarChar(64)
-  ownerUserId   String       @map("owner_user_id")
-  accountId     String       @map("account_id") @db.VarChar(64)
-  amount        Decimal      @db.Decimal(19, 4)
-  direction     String       @db.VarChar(16)
-  postDate      DateTime?    @map("post_date") @db.Timestamptz(6)
-  status        String?      @db.VarChar(32)
-  rawPayload    Json         @map("raw_payload")
-  ingestedAt    DateTime     @default(now()) @map("ingested_at") @db.Timestamptz(6)
-  updatedAt     DateTime     @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  transactionId String    @id @map("transaction_id") @db.VarChar(64)
+  ownerUserId   String    @map("owner_user_id")
+  accountId     String    @map("account_id") @db.VarChar(64)
+  amount        Decimal   @db.Decimal(19, 4)
+  direction     String    @db.VarChar(16)
+  postDate      DateTime? @map("post_date") @db.Timestamptz(6)
+  status        String?   @db.VarChar(32)
+  rawPayload    Json      @map("raw_payload")
+  ingestedAt    DateTime  @default(now()) @map("ingested_at") @db.Timestamptz(6)
+  updatedAt     DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  owner         User         @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
-  account       BasiqAccount @relation(fields: [accountId], references: [accountId], onUpdate: Cascade, onDelete: Restrict)
+  owner        User          @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  account      BasiqAccount  @relation(fields: [accountId], references: [accountId], onUpdate: Cascade, onDelete: Restrict)
+  billEvidence BillEvidence?
 
   @@index([ownerUserId, postDate(sort: Desc)], map: "idx_basiq_transactions_owner_post_date")
   @@index([ownerUserId, accountId, postDate(sort: Desc)], map: "idx_basiq_transactions_owner_account_post_date")
   @@index([accountId], map: "idx_basiq_transactions_account_id")
   @@index([status], map: "idx_basiq_transactions_status")
   @@map("basiq_transactions")
+}
+
+enum ExpenseCategory {
+  INTERNET
+
+  @@map("expense_category")
+}
+
+enum DetectedBillStatus {
+  DETECTED
+  CONFIRMED
+  DISMISSED
+
+  @@map("detected_bill_status")
+}
+
+enum BillingCadence {
+  MONTHLY
+
+  @@map("billing_cadence")
+}
+
+/// A recurring expense inferred from a user's bank transactions.
+model DetectedBill {
+  id                      String             @id @default(cuid())
+  ownerUserId             String             @map("owner_user_id")
+  category                ExpenseCategory    @default(INTERNET)
+  /// Stable detector grouping key; currently provider + source account.
+  seriesKey               String             @map("series_key") @db.VarChar(160)
+  providerKey             String             @map("provider_key") @db.VarChar(64)
+  providerName            String             @map("provider_name") @db.VarChar(120)
+  estimatedMonthlyCostAud Decimal            @map("estimated_monthly_cost_aud") @db.Decimal(12, 2)
+  cadence                 BillingCadence     @default(MONTHLY)
+  confidence              Int
+  status                  DetectedBillStatus @default(DETECTED)
+  occurrenceCount         Int                @map("occurrence_count")
+  firstSeenAt             DateTime           @map("first_seen_at") @db.Timestamptz(6)
+  lastSeenAt              DateTime           @map("last_seen_at") @db.Timestamptz(6)
+  matcherVersion          String             @map("matcher_version") @db.VarChar(32)
+  createdAt               DateTime           @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime           @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  owner        User              @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  evidence     BillEvidence[]
+  needProfiles UserNeedProfile[]
+
+  @@unique([ownerUserId, category, seriesKey], map: "uq_detected_bills_owner_category_series")
+  @@index([ownerUserId, category, status], map: "idx_detected_bills_owner_category_status")
+  @@index([ownerUserId, lastSeenAt(sort: Desc)], map: "idx_detected_bills_owner_last_seen")
+  @@map("detected_bills")
+}
+
+/// Explainable transaction-level support for a detected recurring bill.
+model BillEvidence {
+  id                 String   @id @default(cuid())
+  ownerUserId        String   @map("owner_user_id")
+  detectedBillId     String   @map("detected_bill_id")
+  transactionId      String   @unique @map("transaction_id") @db.VarChar(64)
+  matchedProviderKey String   @map("matched_provider_key") @db.VarChar(64)
+  matchedText        String   @map("matched_text") @db.Text
+  matchScore         Int      @map("match_score")
+  matchReasons       String[] @map("match_reasons")
+  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  owner        User             @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  detectedBill DetectedBill     @relation(fields: [detectedBillId], references: [id], onDelete: Cascade)
+  transaction  BasiqTransaction @relation(fields: [transactionId], references: [transactionId], onDelete: Cascade)
+
+  @@index([ownerUserId, detectedBillId], map: "idx_bill_evidence_owner_bill")
+  @@map("bill_evidence")
+}
+
+enum AustralianState {
+  ACT
+  NSW
+  NT
+  QLD
+  SA
+  TAS
+  VIC
+  WA
+
+  @@map("australian_state")
+}
+
+/// Service address used for internet capability lookup.
+model UserAddress {
+  id          String          @id @default(cuid())
+  ownerUserId String          @map("owner_user_id")
+  line1       String          @db.VarChar(200)
+  line2       String?         @db.VarChar(200)
+  suburb      String          @db.VarChar(120)
+  state       AustralianState
+  postcode    String          @db.VarChar(4)
+  country     String          @default("AU") @db.Char(2)
+  lat         Decimal?        @db.Decimal(9, 6)
+  lng         Decimal?        @db.Decimal(9, 6)
+  createdAt   DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime        @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  owner                 User                          @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  needProfiles          UserNeedProfile[]
+  capabilityAssessments AddressCapabilityAssessment[]
+
+  @@unique([ownerUserId], map: "uq_user_addresses_owner")
+  @@index([ownerUserId, postcode], map: "idx_user_addresses_owner_postcode")
+  @@map("user_addresses")
+}
+
+/// Preferences and readiness for a category recommendation run.
+model UserNeedProfile {
+  id               String          @id @default(cuid())
+  ownerUserId      String          @map("owner_user_id")
+  category         ExpenseCategory @default(INTERNET)
+  detectedBillId   String?         @map("detected_bill_id")
+  serviceAddressId String?         @map("service_address_id")
+  minDownloadMbps  Int             @map("min_download_mbps")
+  allowWired       Boolean         @default(true) @map("allow_wired")
+  allow5g          Boolean         @default(true) @map("allow_5g")
+  allowStarlink    Boolean         @default(true) @map("allow_starlink")
+  readyForAssess   Boolean         @default(false) @map("ready_for_assess")
+  createdAt        DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime        @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  owner          User          @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  detectedBill   DetectedBill? @relation(fields: [detectedBillId], references: [id], onDelete: SetNull)
+  serviceAddress UserAddress?  @relation(fields: [serviceAddressId], references: [id], onDelete: SetNull)
+
+  @@unique([ownerUserId, category], map: "uq_user_need_profiles_owner_category")
+  @@index([ownerUserId, readyForAssess], map: "idx_user_need_profiles_owner_ready")
+  @@map("user_need_profiles")
+}
+
+enum CapabilityAssessmentStatus {
+  PENDING
+  READY
+  FAILED
+
+  @@map("capability_assessment_status")
+}
+
+enum InternetAccessFamily {
+  NBN
+  FIVE_G
+  STARLINK
+
+  @@map("internet_access_family")
+}
+
+/// A point-in-time serviceability lookup for one address.
+model AddressCapabilityAssessment {
+  id                 String                     @id @default(cuid())
+  ownerUserId        String                     @map("owner_user_id")
+  addressId          String                     @map("address_id")
+  addressFingerprint String                     @map("address_fingerprint") @db.VarChar(64)
+  provider           String                     @db.VarChar(64)
+  status             CapabilityAssessmentStatus @default(PENDING)
+  checkedAt          DateTime                   @map("checked_at") @db.Timestamptz(6)
+  rawPayload         Json                       @map("raw_payload")
+  failureReason      String?                    @map("failure_reason") @db.Text
+  createdAt          DateTime                   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime                   @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  owner   User                  @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  address UserAddress           @relation(fields: [addressId], references: [id], onDelete: Cascade)
+  options AddressAccessOption[]
+
+  @@index([ownerUserId, addressId, checkedAt(sort: Desc)], map: "idx_capability_assessments_owner_address_checked")
+  @@index([ownerUserId, status], map: "idx_capability_assessments_owner_status")
+  @@map("address_capability_assessments")
+}
+
+/// One physical internet access path found by a capability assessment.
+model AddressAccessOption {
+  id                 String                  @id @default(cuid())
+  ownerUserId        String                  @map("owner_user_id")
+  assessmentId       String                  @map("assessment_id")
+  accessFamily       InternetAccessFamily    @map("access_family")
+  connectionType     InternetConnectionType? @map("connection_type")
+  available          Boolean
+  maxDownMbps        Int?                    @map("max_down_mbps")
+  maxUpMbps          Int?                    @map("max_up_mbps")
+  typicalEveningMbps Int?                    @map("typical_evening_mbps")
+  confidence         Int
+  notes              String?                 @db.Text
+  createdAt          DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  owner      User                        @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  assessment AddressCapabilityAssessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+
+  @@index([ownerUserId, accessFamily, available], map: "idx_access_options_owner_family_available")
+  @@index([assessmentId], map: "idx_access_options_assessment")
+  @@map("address_access_options")
+}
+
+enum InternetConnectionType {
+  FTTP
+  FTTN
+  FTTC
+  HFC
+  FIXED_WIRELESS  @map("Fixed Wireless")
+  FIVE_G_WIRELESS @map("5G Wireless")
+
+  @@map("internet_connection_type")
+}
+
+enum InternetDataAllowance {
+  Unlimited
+  Capped
+
+  @@map("internet_data_allowance")
+}
+
+enum InternetOfferStatus {
+  Active
+  Expired
+  Draft
+  Hold
+
+  @@map("internet_offer_status")
+}
+
+/// Retail NBN / wireless market offers for bill-comparison.
+model InternetMarketOffer {
+  id                                  Int                    @id @default(autoincrement())
+  providerName                        String                 @map("provider_name")
+  planName                            String                 @map("plan_name")
+  connectionType                      InternetConnectionType @map("connection_type")
+  maxDownloadSpeed                    Int                    @map("max_download_speed")
+  typicalEveningSpeed                 Int                    @map("typical_evening_speed")
+  uploadSpeed                         Int                    @map("upload_speed")
+  ongoingMonthlyCost                  Decimal                @map("ongoing_monthly_cost") @db.Decimal(10, 2)
+  promoMonthlyCost                    Decimal                @map("promo_monthly_cost") @db.Decimal(10, 2)
+  promoDurationMonths                 Int                    @default(0) @map("promo_duration_months")
+  modemCost                           Decimal                @default(0) @map("modem_cost") @db.Decimal(10, 2)
+  setupFee                            Decimal                @default(0) @map("setup_fee") @db.Decimal(10, 2)
+  exitFee                             Decimal                @default(0) @map("exit_fee") @db.Decimal(10, 2)
+  dataAllowance                       InternetDataAllowance  @map("data_allowance")
+  contractTermMonths                  Int                    @map("contract_term_months")
+  bundledPerksNotes                   String?                @map("bundled_perks_notes") @db.Text
+  targetPostcode                      String                 @default("ALL") @map("target_postcode") @db.VarChar(16)
+  networkOwner                        String                 @default("NBN") @map("network_owner") @db.VarChar(64)
+  deepLinkUrl                         String?                @map("deep_link_url") @db.Text
+  /// First-year cash outlay: promo window + residual months + modem + setup.
+  calculatedFirstYearTotalCostAud     Decimal                @map("calculated_first_year_total_cost_aud") @db.Decimal(12, 2)
+  /// First-year total amortized over 12 months.
+  calculatedTrueAverageMonthlyCostAud Decimal                @map("calculated_true_average_monthly_cost_aud") @db.Decimal(12, 4)
+  /// True average monthly cost per typical evening Mbps.
+  calculatedCostPerMbpsMetric         Decimal                @map("calculated_cost_per_mbps_metric") @db.Decimal(12, 6)
+  /// Admin flag: include in Top 5 shortlist.
+  top5                                Boolean                @default(false) @map("top5")
+  /// Admin flag: record has a data/review issue.
+  issue                               Boolean                @default(false) @map("issue")
+  /// Lifecycle status for admin review (writable in admin UI).
+  status                              InternetOfferStatus    @default(Draft)
+  /// Set only when status changes — not when market fields change.
+  statusUpdatedAt                     DateTime               @default(now()) @map("status_updated_at") @db.Timestamptz(6)
+  /// Plan/market last updated — bumps on market-field writes only (not status/flags).
+  lastUpdated                         DateTime               @default(now()) @map("last_updated") @db.Timestamptz(6)
+
+  @@index([providerName], map: "idx_internet_market_offers_provider_name")
+  @@index([connectionType], map: "idx_internet_market_offers_connection_type")
+  @@index([maxDownloadSpeed], map: "idx_internet_market_offers_max_download_speed")
+  @@index([typicalEveningSpeed], map: "idx_internet_market_offers_typical_evening_speed")
+  @@index([ongoingMonthlyCost], map: "idx_internet_market_offers_ongoing_monthly_cost")
+  @@index([targetPostcode], map: "idx_internet_market_offers_target_postcode")
+  @@index([networkOwner], map: "idx_internet_market_offers_network_owner")
+  @@index([lastUpdated], map: "idx_internet_market_offers_last_updated")
+  @@index([statusUpdatedAt], map: "idx_internet_market_offers_status_updated_at")
+  @@index([calculatedTrueAverageMonthlyCostAud], map: "idx_internet_market_offers_true_avg_monthly_asc")
+  @@index([status], map: "idx_internet_market_offers_status")
+  @@index([top5], map: "idx_internet_market_offers_top5")
+  @@index([issue], map: "idx_internet_market_offers_issue")
+  @@map("internet_market_offers")
 }

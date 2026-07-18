@@ -6,6 +6,7 @@ import {
   getAccounts,
   getServerAccessToken,
 } from "@/server/basiq";
+import { detectInternetBillsForOwner } from "@/server/data/internetBills";
 
 function toNumeric(value: unknown): number | null {
   if (value === null || value === undefined || value === "") return null;
@@ -160,5 +161,17 @@ export async function runIngestionPipeline(basiqUserId: string) {
 
   const accountsUpserted = await ingestAccounts(ownerUserId, basiqUserId);
   const txStats = await ingestTransactions(ownerUserId, basiqUserId);
-  return { accountsUpserted, ...txStats, aborted: false as const, ownerUserId };
+  const internetBillDetection = await detectInternetBillsForOwner(ownerUserId)
+    .then((result) => ({ ok: true as const, ...result }))
+    .catch((error) => {
+      console.error("[ingest] Internet bill detection failed", error);
+      return { ok: false as const };
+    });
+  return {
+    accountsUpserted,
+    ...txStats,
+    internetBillDetection,
+    aborted: false as const,
+    ownerUserId,
+  };
 }

@@ -7,19 +7,24 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get(SESSION_COOKIE)?.value;
 
-  if (pathname.startsWith("/app") && !token) {
+  // Protect signed-in areas. Cookie presence is a soft gate only —
+  // pages/APIs still validate the session against the database.
+  if (
+    (pathname.startsWith("/app") || pathname.startsWith("/admin")) &&
+    !token
+  ) {
     const login = new URL("/login", request.url);
     login.searchParams.set("next", pathname);
     return NextResponse.redirect(login);
   }
 
-  if ((pathname === "/login" || pathname === "/signup") && token) {
-    return NextResponse.redirect(new URL("/app", request.url));
-  }
+  // Do NOT bounce /login or /signup away based on cookie presence.
+  // Stale/expired mm_session cookies are common after DB resets and would
+  // create a login ↔ /app redirect loop if we treated the cookie as proof.
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/app/:path*", "/login", "/signup"],
+  matcher: ["/app/:path*", "/admin/:path*", "/login", "/signup"],
 };

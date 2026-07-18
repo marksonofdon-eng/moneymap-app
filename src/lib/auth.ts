@@ -59,6 +59,16 @@ export async function destroySession() {
   cookieStore.delete(SESSION_COOKIE);
 }
 
+/** Best-effort cookie clear (no-ops if called from a context that forbids mutation). */
+async function clearSessionCookie() {
+  try {
+    const cookieStore = await cookies();
+    cookieStore.delete(SESSION_COOKIE);
+  } catch {
+    // Server Components may not allow cookie mutation in all Next versions.
+  }
+}
+
 export async function getCurrentUser(): Promise<SessionUser | null> {
   const cookieStore = await cookies();
   const token = cookieStore.get(SESSION_COOKIE)?.value;
@@ -73,6 +83,7 @@ export async function getCurrentUser(): Promise<SessionUser | null> {
     if (session) {
       await prisma.session.delete({ where: { id: session.id } }).catch(() => undefined);
     }
+    await clearSessionCookie();
     return null;
   }
 

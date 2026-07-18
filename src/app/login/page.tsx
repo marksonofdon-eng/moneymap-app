@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { MoneyMapLogo } from "@/components/MoneyMapLogo";
 
 const marketingUrl =
   process.env.NEXT_PUBLIC_MARKETING_URL || "http://localhost:8080";
@@ -15,6 +16,27 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [checkingSession, setCheckingSession] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/auth/me");
+        if (!cancelled && res.ok) {
+          router.replace(next.startsWith("/") ? next : "/app");
+          return;
+        }
+      } catch {
+        // stay on login form
+      } finally {
+        if (!cancelled) setCheckingSession(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [next, router]);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -31,7 +53,7 @@ export default function LoginPage() {
         setError(data.message || "Could not sign in.");
         return;
       }
-      router.push(next);
+      router.push(next.startsWith("/") ? next : "/app");
       router.refresh();
     } catch {
       setError("Network error. Try again.");
@@ -40,12 +62,18 @@ export default function LoginPage() {
     }
   }
 
+  if (checkingSession) {
+    return (
+      <div className="auth-wrap">
+        <div className="card muted">Checking session…</div>
+      </div>
+    );
+  }
+
   return (
     <div className="auth-wrap">
       <div className="card">
-        <div className="brand">
-          Money<span>Map</span>
-        </div>
+        <MoneyMapLogo asLink={false} />
         <p className="muted">Sign in to your savings dashboard.</p>
         <form onSubmit={onSubmit}>
           <label>

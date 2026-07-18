@@ -11,13 +11,22 @@
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
-    "test:isolation": "npx tsx --env-file=.env scripts/isolation-smoke.mts"
+    "db:ingest-internet-offers": "npx tsx --env-file=.env scripts/ingest_internet_offers.mts",
+    "detect:internet-bills": "npx tsx --env-file=.env scripts/run_internet_bill_detection.mts",
+    "test:internet-bill-integration": "npx tsx --env-file=.env scripts/internet_bill_detection_integration_smoke.mts",
+    "test:internet-savings-intake": "npx tsx scripts/test_internet_savings_intake_schema.mts",
+    "test:internet-savings-integration": "npx tsx --env-file=.env scripts/internet_savings_intake_smoke.mts",
+    "test:internet-capability-provider": "npx tsx scripts/test_hfc_capability_provider.mts",
+    "test:internet-capability-integration": "npx tsx --env-file=.env scripts/internet_capability_integration_smoke.mts",
+    "test:isolation": "npx tsx --env-file=.env scripts/isolation-smoke.mts",
+    "test:internet-bill-detector": "npx tsx scripts/test_internet_bill_detector.mts"
   },
   "dependencies": {
     "@basiq/basiq-javascript-sdk": "^1.0.3",
     "@prisma/client": "^6.11.1",
     "bcryptjs": "^3.0.2",
     "dotenv": "^17.4.2",
+    "exceljs": "^4.4.0",
     "next": "^15.3.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

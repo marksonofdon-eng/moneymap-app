@@ -37,11 +37,13 @@ export function AppClientActions({
   if (mode === "export") {
     if (!canExport) return null;
     return (
-      <div className="actions" style={{ marginTop: 0 }}>
+      <>
         <button
           type="button"
-          className="secondary"
+          className="stat-icon-btn"
           disabled={busy}
+          title="Export transactions"
+          aria-label={busy ? "Exporting transactions" : "Export transactions"}
           onClick={async () => {
             setBusy(true);
             setError(null);
@@ -71,10 +73,14 @@ export function AppClientActions({
             }
           }}
         >
-          {busy ? "Exporting…" : "Export transactions"}
+          {busy ? <SpinnerIcon /> : <ExportIcon />}
         </button>
-        {error ? <p className="error">{error}</p> : null}
-      </div>
+        {error ? (
+          <span className="error" role="alert">
+            {error}
+          </span>
+        ) : null}
+      </>
     );
   }
 
@@ -110,33 +116,96 @@ export function AppClientActions({
     );
   }
 
+  async function startConsent() {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/basiq/consent", { method: "POST" });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.message || "Could not start bank linking.");
+        setBusy(false);
+        return;
+      }
+      window.location.assign(data.browserLink);
+    } catch {
+      setError("Network error starting consent.");
+      setBusy(false);
+    }
+  }
+
+  if (hasAccounts) {
+    return (
+      <>
+        <button
+          type="button"
+          className="stat-icon-btn"
+          disabled={busy}
+          title="Link another bank"
+          aria-label={busy ? "Starting bank linking" : "Link another bank"}
+          onClick={() => void startConsent()}
+        >
+          {busy ? <SpinnerIcon /> : <AddBankIcon />}
+        </button>
+        {error ? (
+          <span className="error" role="alert">
+            {error}
+          </span>
+        ) : null}
+      </>
+    );
+  }
+
   return (
     <div className="actions" style={{ marginTop: 0 }}>
-      <button
-        type="button"
-        className={hasAccounts ? "secondary" : undefined}
-        disabled={busy}
-        onClick={async () => {
-          setBusy(true);
-          setError(null);
-          try {
-            const res = await fetch("/api/basiq/consent", { method: "POST" });
-            const data = await res.json();
-            if (!res.ok) {
-              setError(data.message || "Could not start bank linking.");
-              setBusy(false);
-              return;
-            }
-            window.location.assign(data.browserLink);
-          } catch {
-            setError("Network error starting consent.");
-            setBusy(false);
-          }
-        }}
-      >
-        {busy ? "Starting…" : hasAccounts ? "Link another bank" : "Link bank accounts"}
+      <button type="button" disabled={busy} onClick={() => void startConsent()}>
+        {busy ? "Starting…" : "Link bank accounts"}
       </button>
       {error ? <p className="error">{error}</p> : null}
     </div>
+  );
+}
+
+function AddBankIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M1.5 6.25 9 2.5l7.5 3.75v1.1H1.5v-1.1Zm1.35 2.35h1.8v5.1h-1.8v-5.1Zm3.6 0h1.8v5.1h-1.8v-5.1Zm3.6 0h1.8v5.1H10.05v-5.1ZM1.5 14.4h10.2v1.35H1.5V14.4Z"
+      />
+      <path
+        fill="currentColor"
+        d="M14.25 9.75a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0v-1.5h-1.5a.75.75 0 0 1 0-1.5h1.5V10.5a.75.75 0 0 1 .75-.75Z"
+      />
+    </svg>
+  );
+}
+
+function ExportIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M9 2.25a.75.75 0 0 1 .75.75v6.19l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 0 1 1.06-1.06l1.72 1.72V3a.75.75 0 0 1 .75-.75ZM3.5 11.5a.75.75 0 0 1 .75.75v1.5c0 .14.11.25.25.25h9c.14 0 .25-.11.25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 13.5 15.5h-9A1.75 1.75 0 0 1 2.75 13.75v-1.5a.75.75 0 0 1 .75-.75Z"
+      />
+    </svg>
+  );
+}
+
+function SpinnerIcon() {
+  return (
+    <svg
+      className="admin-icon-spin"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        fill="currentColor"
+        d="M9 2.25a6.75 6.75 0 1 1-6.53 8.4.75.75 0 1 1 1.45-.38A5.25 5.25 0 1 0 9 3.75V2.25Z"
+      />
+    </svg>
   );
 }

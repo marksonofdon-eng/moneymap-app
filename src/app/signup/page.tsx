@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { MoneyMapLogo } from "@/components/MoneyMapLogo";
 
 const marketingUrl =
   process.env.NEXT_PUBLIC_MARKETING_URL || "http://localhost:8080";
@@ -43,9 +44,7 @@ export default function SignupPage() {
   return (
     <div className="auth-wrap">
       <div className="card">
-        <div className="brand">
-          Money<span>Map</span>
-        </div>
+        <MoneyMapLogo asLink={false} />
         <p className="muted">Create your account to start monitoring bill savings.</p>
         <form onSubmit={onSubmit}>
           <label>
