@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { CollapsibleSection } from "@/components/CollapsibleSection";
 
 type JourneyStepStatus = "complete" | "current" | "upcoming";
@@ -14,6 +15,11 @@ type SavingsJourneyTimelineProps = {
   hasDetectedBill: boolean;
   billConfirmed: boolean;
   intakeReady: boolean;
+  recommendationDone?: boolean;
+  accountCount?: number;
+  txCount?: number;
+  billCount?: number;
+  actions?: ReactNode;
 };
 
 export function buildSavingsJourneySteps({
@@ -21,12 +27,16 @@ export function buildSavingsJourneySteps({
   hasDetectedBill,
   billConfirmed,
   intakeReady,
+  recommendationDone = false,
+  accountCount = 0,
+  txCount = 0,
+  billCount = 0,
 }: SavingsJourneyTimelineProps): SavingsJourneyStep[] {
   const done = [
     hasAccounts,
     hasDetectedBill,
-    billConfirmed || intakeReady,
-    billConfirmed && intakeReady,
+    Boolean(intakeReady || billConfirmed),
+    recommendationDone,
   ];
 
   const currentIndex = done.findIndex((isDone) => !isDone);
@@ -35,25 +45,27 @@ export function buildSavingsJourneySteps({
   const defs = [
     {
       id: "link",
-      title: "Link accounts",
-      detail: "Connect banks via Open Banking",
+      title: `${accountCount} Account${accountCount === 1 ? "" : "s"} Linked`,
+      detail: `${txCount.toLocaleString("en-AU")} transaction${txCount === 1 ? "" : "s"} via Open Banking`,
     },
     {
       id: "identify",
-      title: "Identify regular bills",
-      detail: "Spot recurring expenses automatically",
+      title: `${billCount} Bill${billCount === 1 ? "" : "s"} detected`,
+      detail: "Identify recurring expenses",
     },
     {
       id: "savings",
-      title: "Find savings",
-      detail: "Match cheaper plans to your usage",
+      title: "Find Savings Today",
+      detail: recommendationDone
+        ? "Savings check complete"
+        : "Scan for lower-cost bills",
     },
     {
       id: "monitor",
       title: "Ongoing monitoring",
       detail: "Keep watching for better deals",
     },
-  ] as const;
+  ];
 
   return defs.map((step, index) => ({
     ...step,
@@ -66,6 +78,7 @@ export function buildSavingsJourneySteps({
 }
 
 export function SavingsJourneyTimeline(props: SavingsJourneyTimelineProps) {
+  const { actions } = props;
   const steps = buildSavingsJourneySteps(props);
   const completedCount = steps.filter((s) => s.status === "complete").length;
   const currentStep = steps.find((s) => s.status === "current");
@@ -73,6 +86,10 @@ export function SavingsJourneyTimeline(props: SavingsJourneyTimelineProps) {
     0,
     Math.min(100, (completedCount / Math.max(steps.length - 1, 1)) * 100),
   );
+
+  const stepSummary = currentStep
+    ? `Step ${steps.indexOf(currentStep) + 1} · ${currentStep.title}`
+    : `${completedCount} of ${steps.length} complete`;
 
   return (
     <CollapsibleSection
@@ -82,12 +99,13 @@ export function SavingsJourneyTimeline(props: SavingsJourneyTimelineProps) {
       title="From linked accounts to ongoing savings"
       headingId="journey-timeline-heading"
       defaultOpen
-      summary={
-        currentStep
-          ? `Step ${steps.indexOf(currentStep) + 1} · ${currentStep.title}`
-          : `${completedCount} of ${steps.length} complete`
-      }
+      summary={stepSummary}
     >
+      {actions ? (
+        <div className="journey-timeline-toolbar">
+          <div className="journey-timeline-actions">{actions}</div>
+        </div>
+      ) : null}
       <div className="journey-timeline-track">
         <div className="journey-timeline-rail" aria-hidden="true">
           <span

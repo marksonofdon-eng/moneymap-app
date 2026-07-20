@@ -9,13 +9,15 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  passwordHash String   @map("password_hash")
-  name         String?
-  basiqUserId  String?  @unique @map("basiq_user_id") @db.VarChar(64)
-  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id                               String    @id @default(cuid())
+  email                            String    @unique
+  passwordHash                     String    @map("password_hash")
+  name                             String?
+  basiqUserId                      String?   @unique @map("basiq_user_id") @db.VarChar(64)
+  financialHealthContactRequested  Boolean   @default(false) @map("financial_health_contact_requested")
+  financialHealthContactAt         DateTime? @map("financial_health_contact_at") @db.Timestamptz(6)
+  createdAt                        DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                        DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   sessions              Session[]
   accounts              BasiqAccount[]
@@ -26,6 +28,10 @@ model User {
   needProfiles          UserNeedProfile[]
   capabilityAssessments AddressCapabilityAssessment[]
   accessOptions         AddressAccessOption[]
+  incomeReports         BasiqIncomeReport[]
+  incomeSources         BasiqIncomeSource[]
+  secondaryCategoryRules SecondaryCategoryRule[]
+  categoryAssignmentEvents CategoryAssignmentEvent[]
 
   @@map("users")
 }
@@ -68,30 +74,302 @@ model BasiqAccount {
 
 /// Transactions denormalize ownerUserId for fast tenant filters + RLS.
 model BasiqTransaction {
-  transactionId String    @id @map("transaction_id") @db.VarChar(64)
-  ownerUserId   String    @map("owner_user_id")
-  accountId     String    @map("account_id") @db.VarChar(64)
-  amount        Decimal   @db.Decimal(19, 4)
-  direction     String    @db.VarChar(16)
-  postDate      DateTime? @map("post_date") @db.Timestamptz(6)
-  status        String?   @db.VarChar(32)
-  rawPayload    Json      @map("raw_payload")
-  ingestedAt    DateTime  @default(now()) @map("ingested_at") @db.Timestamptz(6)
-  updatedAt     DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  transactionId          String          @id @map("transaction_id") @db.VarChar(64)
+  ownerUserId            String          @map("owner_user_id")
+  accountId              String          @map("account_id") @db.VarChar(64)
+  amount                 Decimal         @db.Decimal(19, 4)
+  direction              String          @db.VarChar(16)
+  postDate               DateTime?       @map("post_date") @db.Timestamptz(6)
+  status                 String?         @db.VarChar(32)
+  rawPayload             Json            @map("raw_payload")
+  /// EXPENSE (debit spend) | INCOME / TRANSFER / OTHER (credits).
+  flowType               TransactionFlow? @map("flow_type")
+  /// Basiq transaction class string (payment, transfer, direct-credit, …).
+  basiqTxClass           String?         @map("basiq_tx_class") @db.VarChar(64)
+  /// Optional link to a Basiq Income API source series.
+  incomeSourceId         String?         @map("income_source_id")
+  /// Denormalized Basiq L4 from rawPayload only — never invented by enrichment.
+  subclassCode           String?         @map("subclass_code") @db.VarChar(16)
+  /// Denormalized Basiq L3 from rawPayload only — never invented by enrichment.
+  groupCode              Int?            @map("group_code")
+  /// MoneyMap UI enrichment (not a Basiq field).
+  parentCategory         String?         @map("parent_category") @db.VarChar(80)
+  /// MoneyMap UI enrichment (not a Basiq field).
+  expenseCategory        String?         @map("expense_category") @db.VarChar(120)
+  categoryConfidence     Int?            @map("category_confidence")
+  categorySource         CategorySource? @map("category_source")
+  categoryMatcherVersion String?         @map("category_matcher_version") @db.VarChar(32)
+  /// Secondary (or future user) rule id when categorySource is SECONDARY_PATTERN / USER_RULE.
+  categoryRuleId         String?         @map("category_rule_id") @db.VarChar(40)
+  categorisedAt          DateTime?       @map("categorised_at") @db.Timestamptz(6)
+  ingestedAt             DateTime        @default(now()) @map("ingested_at") @db.Timestamptz(6)
+  updatedAt              DateTime        @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  owner        User          @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
-  account      BasiqAccount  @relation(fields: [accountId], references: [accountId], onUpdate: Cascade, onDelete: Restrict)
-  billEvidence BillEvidence?
+  owner         User              @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  account       BasiqAccount      @relation(fields: [accountId], references: [accountId], onUpdate: Cascade, onDelete: Restrict)
+  spendCategory SpendCategory?    @relation(fields: [subclassCode], references: [subclassCode], onDelete: SetNull, onUpdate: Cascade)
+  incomeSource  BasiqIncomeSource? @relation(fields: [incomeSourceId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  categoryRule  SecondaryCategoryRule? @relation(fields: [categoryRuleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  billEvidence  BillEvidence?
+  assignmentEvents CategoryAssignmentEvent[]
 
   @@index([ownerUserId, postDate(sort: Desc)], map: "idx_basiq_transactions_owner_post_date")
   @@index([ownerUserId, accountId, postDate(sort: Desc)], map: "idx_basiq_transactions_owner_account_post_date")
   @@index([accountId], map: "idx_basiq_transactions_account_id")
   @@index([status], map: "idx_basiq_transactions_status")
+  @@index([ownerUserId, groupCode, postDate(sort: Desc)], map: "idx_basiq_transactions_owner_group_post_date")
+  @@index([ownerUserId, subclassCode], map: "idx_basiq_transactions_owner_subclass")
+  @@index([ownerUserId, parentCategory], map: "idx_basiq_transactions_owner_parent_category")
+  @@index([ownerUserId, expenseCategory], map: "idx_basiq_transactions_owner_expense_category")
+  @@index([ownerUserId, categorySource], map: "idx_basiq_transactions_owner_category_source")
+  @@index([ownerUserId, flowType], map: "idx_basiq_transactions_owner_flow_type")
+  @@index([ownerUserId, basiqTxClass], map: "idx_basiq_transactions_owner_basiq_tx_class")
+  @@index([incomeSourceId], map: "idx_basiq_transactions_income_source")
+  @@index([categoryRuleId], map: "idx_basiq_transactions_category_rule")
+  @@index([ownerUserId, categoryRuleId], map: "idx_basiq_transactions_owner_category_rule")
+  @@index([categorySource, categoryRuleId], map: "idx_basiq_transactions_source_rule")
   @@map("basiq_transactions")
+}
+
+/// Basiq L3/L4 → end-user Parent/Expense mapping (from End_User_Expense_Mapping.xlsx).
+model SpendCategory {
+  /// Basiq L3 code.
+  groupCode       Int    @map("group_code")
+  /// Basiq L3 group name.
+  groupTitle      String @map("group_title") @db.VarChar(200)
+  /// Basiq L4 class code (stringified).
+  subclassCode    String @id @map("subclass_code") @db.VarChar(16)
+  /// Basiq L4 class name.
+  subclassTitle   String @map("subclass_title") @db.VarChar(200)
+  /// Display label: "Parent · Expense".
+  fullLabel       String @map("full_label") @db.VarChar(240)
+  parentCategory  String @map("parent_category") @db.VarChar(80)
+  expenseCategory String @map("expense_category") @db.VarChar(120)
+
+  transactions BasiqTransaction[]
+
+  @@index([groupCode], map: "idx_spend_categories_group_code")
+  @@index([parentCategory], map: "idx_spend_categories_parent_category")
+  @@index([expenseCategory], map: "idx_spend_categories_expense_category")
+  @@map("spend_categories")
+}
+
+enum CategorySource {
+  BASIQ_ENRICH
+  KEYWORD
+  MANUAL
+  UNMATCHED
+  BASIQ_CLASS
+  INCOME_API
+  SECONDARY_PATTERN
+  /// Confidence-gated supervised / embedding secondary model.
+  MODEL
+  /// Reserved for future per-user approved rules (third tier).
+  USER_RULE
+
+  @@map("category_source")
+}
+
+enum MerchantMapSource {
+  LABELLED
+  RULE
+  MANUAL
+
+  @@map("merchant_map_source")
+}
+
+/// Global merchant-token → Parent/Expense map (promoted into scr_ MERCHANT_TOKEN rules).
+model MerchantCategoryMap {
+  id              String            @id @default(cuid())
+  merchantKey     String            @map("merchant_key") @db.VarChar(120)
+  parentCategory  String            @map("parent_category") @db.VarChar(80)
+  expenseCategory String            @map("expense_category") @db.VarChar(120)
+  flowType        TransactionFlow   @default(EXPENSE) @map("flow_type")
+  supportCount    Int               @default(0) @map("support_count")
+  agreementPct    Int               @default(100) @map("agreement_pct")
+  source          MerchantMapSource @default(LABELLED)
+  matcherVersion  String            @default("merchant-map-v1") @map("matcher_version") @db.VarChar(32)
+  ruleId          String?           @map("rule_id") @db.VarChar(40)
+  createdBy       String            @default("system") @map("created_by") @db.VarChar(80)
+  notes           String?           @db.VarChar(500)
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime          @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  rule SecondaryCategoryRule? @relation(fields: [ruleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@unique([merchantKey], map: "uq_merchant_category_map_key")
+  @@index([ruleId], map: "idx_merchant_category_map_rule")
+  @@map("merchant_category_map")
+}
+
+enum SecondaryRuleStatus {
+  CANDIDATE
+  ACTIVE
+  DISABLED
+  REVOKED
+
+  @@map("secondary_rule_status")
+}
+
+enum SecondaryPatternType {
+  DESC_NORMALIZED
+  BASIQ_L3
+  MERCHANT_TOKEN
+
+  @@map("secondary_pattern_type")
+}
+
+enum SecondaryOwnerScope {
+  GLOBAL
+  USER
+
+  @@map("secondary_owner_scope")
+}
+
+/// Global (v1) secondary categorisation rule with stable audit id (scr_…).
+model SecondaryCategoryRule {
+  id               String               @id @db.VarChar(40)
+  status           SecondaryRuleStatus  @default(CANDIDATE)
+  patternType      SecondaryPatternType @map("pattern_type")
+  patternValue     String               @map("pattern_value") @db.VarChar(240)
+  matchSpec        Json                 @map("match_spec")
+  parentCategory   String               @map("parent_category") @db.VarChar(80)
+  expenseCategory  String               @map("expense_category") @db.VarChar(120)
+  flowType         TransactionFlow      @default(EXPENSE) @map("flow_type")
+  confidence       Int
+  supportCount     Int                  @default(0) @map("support_count")
+  ownerScope       SecondaryOwnerScope  @default(GLOBAL) @map("owner_scope")
+  ownerUserId      String?              @map("owner_user_id")
+  requiresApproval Boolean              @default(false) @map("requires_approval")
+  matcherVersion   String               @default("secondary-v1") @map("matcher_version") @db.VarChar(32)
+  createdBy        String               @map("created_by") @db.VarChar(80)
+  notes            String?              @db.VarChar(500)
+  createdAt        DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+  activatedAt      DateTime?            @map("activated_at") @db.Timestamptz(6)
+  disabledAt       DateTime?            @map("disabled_at") @db.Timestamptz(6)
+  revokedAt        DateTime?            @map("revoked_at") @db.Timestamptz(6)
+  updatedAt        DateTime             @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  owner        User?                      @relation(fields: [ownerUserId], references: [id], onDelete: SetNull)
+  transactions BasiqTransaction[]
+  events       CategoryAssignmentEvent[]
+  merchantMaps MerchantCategoryMap[]
+
+  @@unique([patternType, patternValue, ownerScope, ownerUserId], map: "uq_secondary_rules_pattern_scope")
+  @@index([status, ownerScope], map: "idx_secondary_rules_status_scope")
+  @@index([ownerUserId], map: "idx_secondary_rules_owner")
+  @@map("secondary_category_rules")
+}
+
+/// Append-only categorisation audit log.
+model CategoryAssignmentEvent {
+  id             String          @id @default(cuid())
+  transactionId  String          @map("transaction_id") @db.VarChar(64)
+  ownerUserId    String          @map("owner_user_id")
+  ruleId         String?         @map("rule_id") @db.VarChar(40)
+  categorySource CategorySource  @map("category_source")
+  fromParent     String?         @map("from_parent") @db.VarChar(80)
+  fromExpense    String?         @map("from_expense") @db.VarChar(120)
+  fromSource     CategorySource? @map("from_source")
+  toParent       String?         @map("to_parent") @db.VarChar(80)
+  toExpense      String?         @map("to_expense") @db.VarChar(120)
+  toSource       CategorySource  @map("to_source")
+  toFlowType     TransactionFlow? @map("to_flow_type")
+  matcherVersion String          @map("matcher_version") @db.VarChar(32)
+  reason         String          @db.VarChar(240)
+  createdAt      DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  transaction BasiqTransaction      @relation(fields: [transactionId], references: [transactionId], onDelete: Cascade)
+  owner       User                  @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  rule        SecondaryCategoryRule? @relation(fields: [ruleId], references: [id], onDelete: SetNull)
+
+  @@index([transactionId, createdAt(sort: Desc)], map: "idx_category_events_tx")
+  @@index([ownerUserId, createdAt(sort: Desc)], map: "idx_category_events_owner")
+  @@index([ruleId], map: "idx_category_events_rule")
+  @@map("category_assignment_events")
+}
+
+enum TransactionFlow {
+  EXPENSE
+  INCOME
+  TRANSFER
+  OTHER
+
+  @@map("transaction_flow")
+}
+
+enum IncomeSourceKind {
+  REGULAR
+  IRREGULAR
+  OTHER_CREDIT
+
+  @@map("income_source_kind")
+}
+
+/// Snapshot of a Basiq Income API summary for a user.
+model BasiqIncomeReport {
+  id                  String    @id @db.VarChar(64)
+  ownerUserId         String    @map("owner_user_id")
+  basiqUserId         String    @map("basiq_user_id") @db.VarChar(64)
+  fromMonth           String    @map("from_month") @db.VarChar(7)
+  toMonth             String    @map("to_month") @db.VarChar(7)
+  coverageDays        Int?      @map("coverage_days")
+  generatedAt         DateTime? @map("generated_at") @db.Timestamptz(6)
+  regularIncomeAvg    Decimal?  @map("regular_income_avg") @db.Decimal(19, 4)
+  regularIncomeYtd    Decimal?  @map("regular_income_ytd") @db.Decimal(19, 4)
+  regularIncomeYear   Decimal?  @map("regular_income_year") @db.Decimal(19, 4)
+  irregularIncomeAvg  Decimal?  @map("irregular_income_avg") @db.Decimal(19, 4)
+  summary             Json?
+  rawPayload          Json      @map("raw_payload")
+  syncedAt            DateTime  @default(now()) @map("synced_at") @db.Timestamptz(6)
+  createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  owner   User               @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  sources BasiqIncomeSource[]
+
+  @@index([ownerUserId, syncedAt(sort: Desc)], map: "idx_basiq_income_reports_owner")
+  @@index([basiqUserId], map: "idx_basiq_income_reports_basiq_user")
+  @@map("basiq_income_reports")
+}
+
+/// One regular / irregular / otherCredit series from a Basiq income report.
+model BasiqIncomeSource {
+  id                   String           @id @default(cuid())
+  reportId             String           @map("report_id") @db.VarChar(64)
+  ownerUserId          String           @map("owner_user_id")
+  kind                 IncomeSourceKind
+  source               String           @db.VarChar(240)
+  frequency            String?          @db.VarChar(32)
+  ageDays              Int?             @map("age_days")
+  stability            Decimal?         @db.Decimal(6, 4)
+  amountAvg            Decimal?         @map("amount_avg") @db.Decimal(19, 4)
+  amountAvgMonthly     Decimal?         @map("amount_avg_monthly") @db.Decimal(19, 4)
+  occurrenceCount      Int?             @map("occurrence_count")
+  avgMonthlyOccurrence Decimal?         @map("avg_monthly_occurrence") @db.Decimal(12, 4)
+  currentAmount        Decimal?         @map("current_amount") @db.Decimal(19, 4)
+  currentDate          DateTime?        @map("current_date") @db.Timestamptz(6)
+  nextDate             DateTime?        @map("next_date") @db.Timestamptz(6)
+  otherCreditLabel     String?          @map("other_credit_label") @db.VarChar(120)
+  parentCategory       String           @default("Income") @map("parent_category") @db.VarChar(80)
+  incomeCategory       String           @map("income_category") @db.VarChar(120)
+  rawPayload           Json             @map("raw_payload")
+  createdAt            DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt            DateTime         @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  report       BasiqIncomeReport  @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  owner        User               @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  transactions BasiqTransaction[]
+
+  @@index([ownerUserId, kind], map: "idx_basiq_income_sources_owner_kind")
+  @@index([reportId], map: "idx_basiq_income_sources_report")
+  @@index([ownerUserId, incomeCategory], map: "idx_basiq_income_sources_owner_category")
+  @@map("basiq_income_sources")
 }
 
 enum ExpenseCategory {
   INTERNET
+  OTHER
 
   @@map("expense_category")
 }
@@ -115,6 +393,10 @@ model DetectedBill {
   id                      String             @id @default(cuid())
   ownerUserId             String             @map("owner_user_id")
   category                ExpenseCategory    @default(INTERNET)
+  /// Basiq L3 group when known (e.g. 580 = telecom).
+  groupCode               Int?               @map("group_code")
+  /// Basiq L4 class when known (e.g. 5801 = Wired Telecom / Internet).
+  subclassCode            String?            @map("subclass_code") @db.VarChar(16)
   /// Stable detector grouping key; currently provider + source account.
   seriesKey               String             @map("series_key") @db.VarChar(160)
   providerKey             String             @map("provider_key") @db.VarChar(64)
@@ -136,6 +418,7 @@ model DetectedBill {
 
   @@unique([ownerUserId, category, seriesKey], map: "uq_detected_bills_owner_category_series")
   @@index([ownerUserId, category, status], map: "idx_detected_bills_owner_category_status")
+  @@index([ownerUserId, groupCode, status], map: "idx_detected_bills_owner_group_status")
   @@index([ownerUserId, lastSeenAt(sort: Desc)], map: "idx_detected_bills_owner_last_seen")
   @@map("detected_bills")
 }

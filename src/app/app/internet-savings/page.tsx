@@ -19,9 +19,7 @@ export default async function InternetSavingsPage() {
         <AppClientActions mode="logout" />
       </AppHeader>
       <main className="main">
-        <div className="panel">
-          <InternetSavingsClient />
-        </div>
+        <InternetSavingsClient />
       </main>
     </div>
   );

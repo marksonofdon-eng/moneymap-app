@@ -1,0 +1,557 @@
+basiq_l3_code,basiq_l3_name,basiq_l4_code,basiq_l4_name,parent_category,expense_category
+59,Other Non-Metallic Mineral Mining,591,Peat Mining,Home Maintenance,Soil Supplies
+59,Other Non-Metallic Mineral Mining,599,Other Non-Metallic Mineral Mining n.e.c.,Home Maintenance,Industrial Stone
+99,Other Mining Support Services,990,Other Mining Support Services,Miscellaneous,Commercial Mining
+189,Other Chemical Product Mfg,1892,Match Manufacturing,Home Maintenance,Matches & Lighters
+191,Polymer Product Manufacturing,1914,Laminated Plastic Plate & Sheet Mfg,Miscellaneous,Plastic Materials
+191,Polymer Product Manufacturing,1915,Plastic Pipe and Fitting Manufacturing,Home Maintenance,Plumbing Supplies
+191,Polymer Product Manufacturing,1919,Plastic Product Manufacturing n.e.c.,Miscellaneous,Plastic Goods
+229,Other Fabricated Metal Product Mfg,2299,Other Fabricated Metal Product Mfg n.e.c.,Home Maintenance,Hardware Supplies
+239,Other Transport Equipment Mfg,2395,Aircraft Engine and Parts Manufacturing,Travel & Holidays,Aircraft Services
+243,Electrical Equipment Manufacturing,2437,Electric Sign Manufacturing,Tech & Electronics,Signage Factory
+243,Electrical Equipment Manufacturing,2438,Electrical Equipment Manufacturing n.e.c.,Home Maintenance,Electrical Parts
+246,Mining & Construction Machinery,2462,Construction Machinery Manufacturing Support,Home Maintenance,Heavy Machinery
+246,Mining & Construction Machinery,2469,Other Machinery Equipment Support n.e.c.,Home Maintenance,Heavy Machinery
+332,"Grocery, Liquor & Tobacco Wholesale",3327,Tobacco Product Wholesaling,Miscellaneous,Tobacco Wholesale
+332,"Grocery, Liquor & Tobacco Wholesale",3328,Soft Drink and Confectionery Whls,Food & Dining,Wholesale Snacks
+349,Other Goods Wholesaling,3493,Plumbing Goods Wholesaling Support,Home Maintenance,Plumbing Supplies
+350,Motor Vehicle & Part Wholesaling,3508,Automotive Body and Trailer Whls Support,Transport & Auto,Trailer Outfitting
+380,Commission-Based Wholesaling,3805,Wool Broking Services,Miscellaneous,Bulk Wool Broker
+392,Motor Cycle Retailing,3927,Motorcycle Customisation Services,Transport & Auto,Motorcycle Parts
+412,Specialised Food Retailing,4126,Tobacco Product Retailing Support,Miscellaneous,Tobacco
+426,Department Stores,4265,Clearance and Overstock Retail Outlets,Clothes & Fashion,Discount Outlets
+501,Scenic & Sightseeing Transport,5017,Scenic and Sightseeing Boat Cruises,Travel & Holidays,Ferry Cruises
+510,Postal & Courier Services,5106,Local Courier and Messenger Services,Miscellaneous,Courier Booking
+521,Transport Support Services,5218,Grain Storage and Warehousing Services,Miscellaneous,Bulk Storage
+529,Other Transport Support Services,5297,Road Passenger Transport Support n.e.c.,Transport & Auto,Transport Fees
+542,Tech Support Services,5424,Cloud Database Management Services,Tech & Electronics,Cloud Infrastructure
+623,Financial Auxiliary Services,6232,Financial Asset Management Support Services,Investments/Savings,Investments
+642,Financial Auxiliary Services,6423,Self-Managed Superannuation Fund Advisory,Investments/Savings,SMSF Advisory
+662,Motor Vehicle Renting,6623,Commercial Fleet Leasing Services,Transport & Auto,Fleet Vehicle Lease
+693,Legal & Accounting Services,6935,Bookkeeping and Payroll Services,"Finance, Legal & Ins",Tax & Accounting
+729,Other Personal Services,7294,Commercial Photography & Video Services,Tech & Electronics,Photography
+729,Other Personal Services,7295,Translation and Interpreting Services,Miscellaneous,General Services
+821,Adult & Community Education,8213,Language and Speech Instruction,Education & Career,Language Lessons
+859,Other Health Care Services,8592,Paramedical and Emergency Rescue Services,Health & Medical,Ambulance Fees
+911,Sports & Recreation Support,9115,Professional Sports Team Operations,Entertainment,Sports Tickets
+955,Interest Groups & Unions,9553,Political Organisation Operation,Gifts & Donations,Political Pledges
+11,Nursery & Floriculture Production,112,Floriculture Production (Outdoor),Miscellaneous,Flower Growing
+11,Nursery & Floriculture Production,113,Turf Growing,Home Maintenance,Turf Farming
+11,Nursery & Floriculture Production,114,Under Cover Floriculture Production,Miscellaneous,Flower Growing
+11,Nursery & Floriculture Production,115,Mushroom Growing,Food & Dining,Mushroom Farming
+12,Grain-Sheep or Grain-Beef Cattle Farming,123,Legume Growing,Food & Dining,Crop Direct
+12,Grain-Sheep or Grain-Beef Cattle Farming,124,Oilseed Growing (Except Soybean),Food & Dining,Crop Direct
+12,Grain-Sheep or Grain-Beef Cattle Farming,125,Sugar Cane Growing,Miscellaneous,Sugar Farming
+14,"Sheep, Beef Cattle & Grain Farming",145,Grain-Sheep or Grain-Beef Cattle Farming,Miscellaneous,Mixed Farming
+14,"Sheep, Beef Cattle & Grain Farming",146,Rice Growing,Food & Dining,Grain Growing
+14,"Sheep, Beef Cattle & Grain Farming",149,Other Crop Growing n.e.c.,Miscellaneous,Crop Direct
+15,Dairy Cattle Farming,152,Dairy Cattle Breeding,Miscellaneous,Livestock Breeding
+16,Poultry Farming,163,Egg Poultry Farming,Food & Dining,Egg Farms
+18,Deer Farming,181,Horse Farming and Breeding,Pets,Horse Breeding
+18,Deer Farming,182,Pig Farming,Miscellaneous,Pig Farming
+18,Deer Farming,189,Other Livestock Farming n.e.c.,Miscellaneous,Livestock Purchases
+19,Hunting and Trapping,192,Trapping and Pest Animal Control,Home Maintenance,Wildlife Control
+20,Aquaculture,204,Oyster Aquaculture,Food & Dining,Direct Seafood
+20,Aquaculture,209,Other Aquaculture Support Services,Food & Dining,Direct Seafood
+30,Forestry & Logging,304,Forestry Support Services,Home Maintenance,Forestry Support
+30,Forestry & Logging,305,Logging Support Operations,Home Maintenance,Timber Milling
+41,Coal Mining,413,Bituminous Coal Mining,Utilities & Bills,Bulk Fuel
+42,Oil & Gas Extraction,421,Offshore Petroleum Extraction Support,Utilities & Bills,Energy Infrastructure
+52,Copper Ore Mining,525,Iron Ore Mining Support Services,Home Maintenance,Industrial Metals
+52,Copper Ore Mining,526,Gold Ore Mining Support Services,Investments/Savings,Precious Metals
+52,Copper Ore Mining,527,Mineral Sand Extraction Support,Home Maintenance,Industrial Metals
+70,Non-Metallic Mineral Mining,703,Clay and Kaolin Quarrying,Home Maintenance,Landscaping Supplies
+70,Non-Metallic Mineral Mining,704,Chemical Fertilizer Mineral Mining,Home Maintenance,Farm Chemicals
+111,Meat & Meat Product Manufacturing,1114,Animal Skin and Hide Tanning,Miscellaneous,Textiles
+111,Meat & Meat Product Manufacturing,1115,Rendering and By-Product Mfg,Miscellaneous,Industrial Processing
+112,Seafood Product Preparation,1121,Fish Canning and Preserving,Food & Dining,Canned Groceries
+112,Seafood Product Preparation,1122,Shellfish Processing and Freezing,Food & Dining,Seafood Processing
+113,Dairy Product Manufacturing,1134,Butter Manufacturing,Food & Dining,Direct Dairy
+113,Dairy Product Manufacturing,1135,Condensed and Powdered Milk Mfg,Food & Dining,Direct Dairy
+116,Grain Mill & Cereal Product Mfg,1163,Prepared Flour Mix and Dough Mfg,Food & Dining,Bulk Grain Flour
+116,Grain Mill & Cereal Product Mfg,1164,Starch and Glucose Manufacturing,Food & Dining,Baking Ingredients
+118,Sugar & Confectionery Product Mfg,1181,Raw Sugar Manufacturing,Food & Dining,Sugar Mills
+118,Sugar & Confectionery Product Mfg,1183,Chocolate and Cocoa Product Mfg,Food & Dining,Sweets Direct
+119,Other Food Product Manufacturing,1193,Prepared Salad and Vegetable Mfg,Food & Dining,Fresh Prepared Food
+119,Other Food Product Manufacturing,1194,Spice and Extract Manufacturing,Food & Dining,Spice Shops
+131,Textile Product Manufacturing,1314,Textile Bleaching and Dyeing,Miscellaneous,Textiles
+132,Leather & Leather Product Mfg,1321,Leather Footwear Manufacturing,Clothes & Fashion,Shoe Factories
+132,Leather & Leather Product Mfg,1322,Luggage and Handbag Manufacturing,Clothes & Fashion,Bags & Luggage
+133,Textile Clothing Manufacturing,1337,Cardigan and Sweater Manufacturing,Clothes & Fashion,Apparel Factories
+133,Textile Clothing Manufacturing,1338,Outerwear Clothing Manufacturing n.e.c.,Clothes & Fashion,Apparel Factories
+141,Log Sawmilling & Timber Dressing,1418,Wood Preserving and Treatment,Home Maintenance,Timber Yards
+151,"Pulp, Paper & Paperboard Mfg",1516,Paper Wallpaper Manufacturing,Home Maintenance,Wallpaper
+152,Converted Paper Product Mfg,1523,Paper Bag and Sack Manufacturing,Education & Career,Packaging Supplies
+152,Converted Paper Product Mfg,1524,Sanitary Product Manufacturing,Home Maintenance,Hygiene Paper
+161,Printing,1613,Commercial Screen Printing,Education & Career,Printing Services
+161,Printing,1614,Digital Printing Operations,Education & Career,Printing Services
+181,Basic Chemical Manufacturing,1816,Industrial Dye and Pigment Mfg,Miscellaneous,Industrial Dye
+181,Basic Chemical Manufacturing,1817,Basic Inorganic Chemical Mfg n.e.c.,Utilities & Bills,Industrial Gas
+182,Chemical Product Manufacturing,1826,Explosives and Pyrotechnics Mfg,Miscellaneous,Industrial Safety
+182,Chemical Product Manufacturing,1827,Formulated Chemical Product Mfg n.e.c.,Home Maintenance,Chemical Supplies
+183,Fertiliser and Pesticide Mfg,1833,Agricultural Chemical Mfg n.e.c.,Home Maintenance,Farm Chemicals
+211,Basic Iron and Steel Mfg,2113,Cold Rolled Steel Product Manufacturing,Home Maintenance,Iron Foundry
+211,Basic Iron and Steel Mfg,2114,Ferro-Alloy Manufacturing,Home Maintenance,Iron Foundry
+212,Basic Non-Ferrous Metal Mfg,2123,Alumina Refining,Home Maintenance,Industrial Metals
+212,Basic Non-Ferrous Metal Mfg,2124,Precious Metal Refining,Investments/Savings,Precious Metals
+213,First Processing of Metal Mfg,2133,Iron and Steel Forging,Home Maintenance,Metal Casting
+221,Iron and Steel Structural Mfg,2215,Metal Roof and Siding Manufacturing,Home Maintenance,Roofing Materials
+221,Iron and Steel Structural Mfg,2216,Metal Door and Window Manufacturing,Home Maintenance,Window Framing
+231,Motor Vehicle & Motor Vehicle Part,2314,Motor Vehicle Steering and Suspension Mfg,Transport & Auto,Auto Parts Factory
+241,Professional & Scientific Equipment,2417,Medical Automation Equipment Mfg,Health & Medical,Medical Hardware
+241,Professional & Scientific Equipment,2418,Laboratory Instrument Manufacturing,Tech & Electronics,Scientific Tools
+243,Electrical Equipment Manufacturing,2435,Switchgear and Switchboard Apparatus Mfg,Home Maintenance,Electrical Parts
+243,Electrical Equipment Manufacturing,2436,Electrical Carbon and Graphite Product Mfg,Home Maintenance,Electrical Parts
+245,Other Machinery & Equipment Mfg,2454,Industrial Truck and Tractor Mfg,Home Maintenance,Heavy Machinery
+245,Other Machinery & Equipment Mfg,2455,Machine Tool and Accessory Mfg,Home Maintenance,Hardware Tools
+251,Furniture Manufacturing,2514,Plastic Furniture Manufacturing,Home Maintenance,Plastic Furniture
+251,Furniture Manufacturing,2515,Upholstered Furniture Manufacturing,Home Maintenance,Furniture Mills
+321,Land Development & Site Preparation,3213,Earthmoving and Excavation Services,Housing & Property,Excavation
+321,Land Development & Site Preparation,3214,Trenching and Boring Services,Housing & Property,Excavation
+331,Agricultural Product Wholesaling,3316,Tobacco Leaf Wholesaling,Miscellaneous,Tobacco wholesale
+331,Agricultural Product Wholesaling,3317,Skins and Hides Wholesaling,Miscellaneous,Textile Wholesale
+341,Chemical & Plastics Wholesaling,3416,Industrial Gas Wholesaling,Utilities & Bills,Industrial Gas
+341,Chemical & Plastics Wholesaling,3417,Synthetic Resin and Rubber Wholesaling,Miscellaneous,Industrial Plastics
+131,Textile Product Manufacturing,1317,Made-Up Textile Product Manufacturing,Miscellaneous,Textiles
+131,Textile Product Manufacturing,1318,Canvas and Tarp Product Manufacturing,Home Maintenance,Hardware Goods
+133,Textile Clothing Manufacturing,1336,Hosiery Manufacturing,Clothes & Fashion,Apparel Factories
+141,Log Sawmilling & Timber Dressing,1416,Wooden Structural Fitting Manufacturing,Home Maintenance,Timber Milling
+141,Log Sawmilling & Timber Dressing,1417,Wooden Container Manufacturing,Miscellaneous,Packaging Supplies
+151,"Pulp, Paper & Paperboard Mfg",1514,Paper Bag Manufacturing,Education & Career,Packaging Supplies
+151,"Pulp, Paper & Paperboard Mfg",1515,Paper Product Manufacturing n.e.c.,Home Maintenance,Paper Consumables
+182,Chemical Product Manufacturing,1822,Pesticide & Agricultural Chemical Mfg,Home Maintenance,Farm Chemicals
+182,Chemical Product Manufacturing,1823,Paint and Coatings Manufacturing,Home Maintenance,Painting & Decor
+182,Chemical Product Manufacturing,1824,Inks and Tones Manufacturing,Education & Career,Office Supplies
+182,Chemical Product Manufacturing,1825,Adhesives Manufacturing,Home Maintenance,Hardware Supplies
+221,Iron and Steel Structural Mfg,2212,Boiler and Plate Corporate Product Mfg,Home Maintenance,Industrial Metal
+221,Iron and Steel Structural Mfg,2213,Metal Tank and Vessel Manufacturing,Home Maintenance,Industrial Metal
+221,Iron and Steel Structural Mfg,2214,Hand Tool and General Hardware Mfg,Home Maintenance,Hardware Supplies
+241,Professional & Scientific Equipment,2414,Optical and Photographic Equipment Mfg,Tech & Electronics,Optical Equipment
+241,Professional & Scientific Equipment,2415,Biomedical and Electromedical Equip Mfg,Health & Medical,Medical Hardware
+241,Professional & Scientific Equipment,2416,Measuring and Controlling Appliance Mfg,Tech & Electronics,Tech Equipment
+242,Computer & Electronic Product Mfg,2423,Communications Equipment Manufacturing,Tech & Electronics,Tech Equipment
+242,Computer & Electronic Product Mfg,2424,Audio and Video Equipment Manufacturing,Tech & Electronics,Audio Gear
+244,Domestic Appliance Manufacturing,2449,Other Electrical Appliance Mfg,Home Maintenance,Appliance Factories
+245,Other Machinery & Equipment Mfg,2456,Food Processing Machinery Manufacturing,Miscellaneous,Commercial Food Gear
+245,Other Machinery & Equipment Mfg,2457,Textile and Clothing Machinery Mfg,Miscellaneous,Industrial Gear
+245,Other Machinery & Equipment Mfg,2458,Woodworking and Paper Machinery Mfg,Miscellaneous,Industrial Gear
+331,Agricultural Product Wholesaling,3313,Live Stock Wholesaling,Miscellaneous,Livestock Broker
+331,Agricultural Product Wholesaling,3314,Flowers and Plants Wholesaling,Miscellaneous,Plants & Florist
+331,Agricultural Product Wholesaling,3315,Agricultural Wholesaling n.e.c.,Miscellaneous,Agricultural Trade
+333,"Textile, Clothing & Footwear Whls",3333,Fabric and Textile Piece Goods Whls,Clothes & Fashion,Wholesale Fabric
+333,"Textile, Clothing & Footwear Whls",3334,Leather and Travel Goods Wholesaling,Clothes & Fashion,Leather Goods
+333,"Textile, Clothing & Footwear Whls",3335,Jewellery and Watch Wholesaling,Clothes & Fashion,Wholesale Jewellery
+341,Chemical & Plastics Wholesaling,3414,Plastics and Rubber Wholesaling,Miscellaneous,Industrial Plastics
+341,Chemical & Plastics Wholesaling,3415,Petroleum and Fuel Wholesaling,Transport & Auto,Refinery Oils
+341,Chemical & Plastics Wholesaling,3419,Other Chemical Wholesaling n.e.c.,Home Maintenance,Industrial Chemicals
+349,Other Goods Wholesaling,3494,Electrical and Electronic Goods Whls,Home Maintenance,Electrical Supplies
+349,Other Goods Wholesaling,3495,Entertainment Goods Wholesaling,Entertainment,Wholesale Media
+349,Other Goods Wholesaling,3496,Paper and Stationery Wholesaling,Education & Career,Paper Supplies
+349,Other Goods Wholesaling,3497,Pharmaceutical and Toiletry Wholesaling,Health & Medical,Medical Wholesale
+349,Other Goods Wholesaling,3498,Toys and Games Wholesaling,Family & Children,Wholesale Toys
+350,Motor Vehicle & Part Wholesaling,3504,Motorcycle Wholesaling,Transport & Auto,Motorcycle Purchase
+350,Motor Vehicle & Part Wholesaling,3505,Motor Vehicle Body and Trailer Whls,Transport & Auto,Trailer Outfitting
+350,Motor Vehicle & Part Wholesaling,3509,Other Motor Vehicle Parts Wholesaling,Transport & Auto,Wholesale Auto Parts
+380,Commission-Based Wholesaling,3802,Commodity Broking Services,"Finance, Legal & Ins",Trade Brokers
+380,Commission-Based Wholesaling,3809,Other Commission-Based Wholesaling,"Finance, Legal & Ins",Trade Brokers
+392,Motor Cycle Retailing,3923,Motorcycle Clothing and Safety Gear,Clothes & Fashion,Motorcycle Gear
+392,Motor Cycle Retailing,3924,Motorcycle Accessories Retailing,Transport & Auto,Motorcycle Parts
+412,Specialised Food Retailing,4127,Gourmet Food Retailing,Food & Dining,Specialty Food
+412,Specialised Food Retailing,4128,Organic Food Retailing,Food & Dining,Specialty Food
+426,Department Stores,4262,Online Department Stores,Clothes & Fashion,Online Shopping
+426,Department Stores,4269,Other Retail Department Outlets,Clothes & Fashion,Discount Outlets
+501,Scenic & Sightseeing Transport,5013,Scenic & Sightseeing Rail Transport,Travel & Holidays,Holiday Tours
+501,Scenic & Sightseeing Transport,5014,Scenic & Sightseeing Coach Transport,Travel & Holidays,Holiday Tours
+501,Scenic & Sightseeing Transport,5019,Other Scenic & Sightseeing Support,Travel & Holidays,Sightseeing
+510,Postal & Courier Services,5103,Parcel Delivery Services,Miscellaneous,Post & Shipping
+510,Postal & Courier Services,5109,Other Postal & Courier Support,Miscellaneous,Post & Shipping
+521,Transport Support Services,5214,Storage and Warehousing Services,Miscellaneous,Storage Units
+521,Transport Support Services,5215,Logistics Support Services n.e.c.,Miscellaneous,Freight Logistics
+521,Transport Support Services,5219,Other Transport Support Services,Transport & Auto,Parking
+529,Other Transport Support Services,5293,Airport Operations and Support,Travel & Holidays,Airport Fees
+529,Other Transport Support Services,5294,Port and Harbour Operations,Entertainment,Marine & Boating
+529,Other Transport Support Services,5299,Other Transport Infrastructure n.e.c.,Transport & Auto,Transport Fees
+541,Software Publishing,5414,Mobile Application Publishing,Tech & Electronics,App Store Purchases
+541,Software Publishing,5419,Other Software Publishing n.e.c.,Tech & Electronics,Software
+542,Tech Support Services,5422,Cybersecurity Software and Operations,Tech & Electronics,Cybersecurity
+542,Tech Support Services,5429,Other Data Processing and Tech Support,Tech & Electronics,Tech Services
+623,Financial Auxiliary Services,6239,Other Financial Auxiliary Services,"Finance, Legal & Ins",Financial Services
+642,Financial Auxiliary Services,6422,Superannuation Advisory Services,Investments/Savings,Super Advisory
+642,Financial Auxiliary Services,6429,Other Auxiliary Investment Services,Investments/Savings,Investments
+662,Motor Vehicle Renting,6622,Recreational Vehicle Rental,Travel & Holidays,Campervan Rental
+662,Motor Vehicle Renting,6629,Other Machinery & Equipment Rental,Home Maintenance,Equipment Rental
+693,Legal & Accounting Services,6934,Taxation Consulting Services,"Finance, Legal & Ins",Tax & Accounting
+693,Legal & Accounting Services,6939,Other Legal & Accounting Support,"Finance, Legal & Ins",Legal
+729,Other Personal Services,7292,Event Planning and Coordination,Entertainment,Event Booking
+13,Outdoor Vegetable Growing,131,Under Cover Vegetable Growing,Miscellaneous,Crop Direct
+13,Outdoor Vegetable Growing,132,Under Cover Fruit and Tree Nut Growing,Miscellaneous,Crop Direct
+13,Outdoor Vegetable Growing,133,Berry Growing,Food & Dining,Fruit Growing
+13,Outdoor Vegetable Growing,134,Apple and Pear Growing,Food & Dining,Fruit Growing
+13,Outdoor Vegetable Growing,135,Stone Fruit Growing,Food & Dining,Fruit Growing
+13,Outdoor Vegetable Growing,136,Citrus Fruit Growing,Food & Dining,Fruit Growing
+13,Outdoor Vegetable Growing,137,Olive Growing,Food & Dining,Fruit Growing
+13,Outdoor Vegetable Growing,138,Grape Growing,Food & Dining,Vineyards
+13,Outdoor Vegetable Growing,139,Other Fruit and Tree Nut Growing,Food & Dining,Fruit Growing
+15,Dairy Cattle Farming,151,Dairy Cattle Farming,Miscellaneous,Dairy Farms
+17,Commercial Fishing,172,Prawn Fishing,Food & Dining,Direct Seafood
+17,Commercial Fishing,173,Rock Lobster Fishing,Food & Dining,Direct Seafood
+17,Commercial Fishing,179,Other Marine Fishing,Food & Dining,Direct Seafood
+20,Aquaculture,202,Offshore Caged Aquaculture,Food & Dining,Direct Seafood
+30,Forestry & Logging,303,Timber Tract Operations,Home Maintenance,Timber Milling
+51,Oil & Gas Extraction,511,Iron Ore Mining,Home Maintenance,Industrial Metals
+52,Copper Ore Mining,521,Bauxite Mining,Home Maintenance,Industrial Metals
+52,Copper Ore Mining,522,Silver-Lead-Zinc Ore Mining,Home Maintenance,Industrial Metals
+52,Copper Ore Mining,523,Nickel Ore Mining,Home Maintenance,Industrial Metals
+52,Copper Ore Mining,524,Mineral Sand Mining,Home Maintenance,Industrial Metals
+70,Non-Metallic Mineral Mining,702,Other Construction Material Mining,Home Maintenance,Landscaping Supplies
+70,Non-Metallic Mineral Mining,709,Other Non-Metallic Mineral Mining,Home Maintenance,Industrial Stone
+114,Fruit & Vegetable Processing,1141,Canned Food Manufacturing,Food & Dining,Canned Groceries
+114,Fruit & Vegetable Processing,1142,Frozen Food Manufacturing,Food & Dining,Frozen Groceries
+115,Oil and Fat Manufacturing,1151,Margarine and Oils Manufacturing,Food & Dining,Cooking Oils
+115,Oil and Fat Manufacturing,1152,Prepared Animal Food Manufacturing,Pets,Bulk Pet Food
+116,Grain Mill & Cereal Product Mfg,1162,Cereal Product Manufacturing,Food & Dining,Breakfast Cereals
+117,Bakery Product Manufacturing,1172,Cake and Pastry Manufacturing,Food & Dining,Bakery Direct
+117,Bakery Product Manufacturing,1173,Biscuit Manufacturing,Food & Dining,Biscuits Direct
+117,Bakery Product Manufacturing,1174,Flour Mill Product Manufacturing,Food & Dining,Bulk Grain Flour
+119,Other Food Product Manufacturing,1199,Other Food Product Manufacturing n.e.c.,Food & Dining,Food Subscriptions
+131,Textile Product Manufacturing,1315,Textile Floor Covering Manufacturing,Home Maintenance,Rug & Flooring
+131,Textile Product Manufacturing,1316,"Rope, Cordage and Twine Manufacturing",Home Maintenance,Hardware Wire
+131,Textile Product Manufacturing,1319,Other Textile Product Manufacturing,Miscellaneous,Textiles
+133,Textile Clothing Manufacturing,1333,Men's and Boys' Wear Manufacturing,Clothes & Fashion,Apparel Factories
+133,Textile Clothing Manufacturing,1334,Women's and Girls' Wear Manufacturing,Clothes & Fashion,Apparel Factories
+133,Textile Clothing Manufacturing,1335,Sleepwear and Underwear Manufacturing,Clothes & Fashion,Apparel Factories
+133,Textile Clothing Manufacturing,1339,Other Clothing Manufacturing,Clothes & Fashion,Apparel Factories
+141,Log Sawmilling & Timber Dressing,1414,Wood Product Manufacturing n.e.c.,Home Maintenance,Timber Yards
+141,Log Sawmilling & Timber Dressing,1415,Plywood and Veneer Manufacturing,Home Maintenance,Timber Yards
+141,Log Sawmilling & Timber Dressing,1419,Other Wood Product Manufacturing,Home Maintenance,Timber Yards
+151,"Pulp, Paper & Paperboard Mfg",1513,Corrugated Paperboard Manufacturing,Education & Career,Packaging Supplies
+152,Converted Paper Product Mfg,1522,Paper Stationery Manufacturing,Education & Career,Paper Consumables
+152,Converted Paper Product Mfg,1529,Other Converted Paper Product Mfg,Education & Career,Packaging Supplies
+181,Basic Chemical Manufacturing,1814,Synthetic Resin Manufacturing,Miscellaneous,Industrial Plastics
+181,Basic Chemical Manufacturing,1815,Synthetic Rubber Manufacturing,Transport & Auto,Rubber Supplies
+181,Basic Chemical Manufacturing,1819,Other Basic Chemical Manufacturing,Utilities & Bills,Industrial Gas
+182,Chemical Product Manufacturing,1829,Other Chemical Product Manufacturing,Home Maintenance,Chemical Supplies
+183,Fertiliser and Pesticide Mfg,1832,Pesticide Manufacturing,Home Maintenance,Farm Chemicals
+211,Basic Iron and Steel Mfg,2111,Iron Smelting and Steel Manufacturing,Home Maintenance,Iron Foundry
+211,Basic Iron and Steel Mfg,2112,Steel Pipe and Tube Manufacturing,Home Maintenance,Iron Foundry
+212,Basic Non-Ferrous Metal Mfg,2122,"Copper, Silver, Lead and Zinc Smelting",Home Maintenance,Industrial Metals
+212,Basic Non-Ferrous Metal Mfg,2129,Other Basic Non-Ferrous Metal Mfg,Home Maintenance,Industrial Metals
+213,First Processing of Metal Mfg,2132,Non-Ferrous Metal Casting,Home Maintenance,Metal Casting
+213,First Processing of Metal Mfg,2139,Other First Processing of Metal,Home Maintenance,Metal Casting
+221,Iron and Steel Structural Mfg,2211,Prefabricated Metal Building Mfg,Home Maintenance,Prefab Buildings
+221,Iron and Steel Structural Mfg,2219,Other Structural Metal Product Mfg,Home Maintenance,Structural Steel
+231,Motor Vehicle & Motor Vehicle Part,2319,Other Motor Vehicle Parts Manufacturing,Transport & Auto,Auto Parts Factory
+241,Professional & Scientific Equipment,2413,Industrial Process Control Equipment Mfg,Tech & Electronics,Scientific Tools
+243,Electrical Equipment Manufacturing,2433,Electric Motor and Generator Mfg,Home Maintenance,Electrical Parts
+243,Electrical Equipment Manufacturing,2434,Electricity Distribution Equipment Mfg,Home Maintenance,Electrical Parts
+245,Other Machinery & Equipment Mfg,2452,Mining Machinery Manufacturing,Home Maintenance,Heavy Machinery
+245,Other Machinery & Equipment Mfg,2453,Construction Machinery Manufacturing,Home Maintenance,Heavy Machinery
+245,Other Machinery & Equipment Mfg,2459,Other Machinery and Equipment Mfg n.e.c.,Home Maintenance,Heavy Machinery
+321,Land Development & Site Preparation,3219,Other Site Preparation Services,Housing & Property,Excavation
+341,Chemical & Plastics Wholesaling,3413,Plastics Material Wholesaling,Miscellaneous,Industrial Plastics
+622,Banking & Financial Services,6223,Depository Financial Intermediation n.e.c.,"Finance, Legal & Ins",Banking Services
+632,Health & General Insurance,6323,Other Insurance,"Finance, Legal & Ins",Specialized Insurance
+633,Superannuation Funds,6330,Superannuation Funds,Investments/Savings,Superannuation
+641,Financial Auxiliary Services,6411,Financial Market Operation,Investments/Savings,Trading Markets
+721,Employment Services,7211,Employment Placement & Recruitment,Education & Career,Recruitment Fees
+721,Employment Services,7212,Labour Supply Services,Education & Career,Contractor Labour
+731,Building & Cleaning Services,7311,Building Cleaning & Maintenance Services,Home Maintenance,Property Cleaning
+731,Building & Cleaning Services,7312,Building Pest Control Services,Home Maintenance,Pest Control
+751,Government & Administration,7519,State Government Administration,"Finance, Legal & Ins",Gov Fees & Duties
+752,Justice & Public Safety,7520,Justice & Public Safety Operations,"Finance, Legal & Ins",Court & Justice
+821,Adult & Community Education,8211,Sports and Physical Recreation Instruction,Personal Care,Coaching & Lessons
+821,Adult & Community Education,8212,Arts Education,Entertainment,Art & Music Lessons
+821,Adult & Community Education,8219,Adult and Community Education n.e.c.,Education & Career,Community Classes
+822,Educational Support Services,8220,Educational Support Services,Family & Children,Tutoring & Support
+852,Pathology & Diagnostic Imaging,8520,Pathology and Diagnostic Imaging Services,Health & Medical,Blood Tests & Scans
+859,Other Health Care Services,8591,Ambulance Services,Health & Medical,Ambulance Fees
+859,Other Health Care Services,8599,Other Health Care Services n.e.c.,Health & Medical,Medical Support
+860,Residential Care Services,8601,Aged Care Residential Services,Health & Medical,Aged Care Lodging
+879,Other Social Assistance Services,8790,Other Social Assistance Services,Gifts & Donations,Social Services
+891,Museum & Gallery Operations,8910,Museum & Gallery Operations,Entertainment,Museums & Galleries
+892,Parks & Gardens Operations,8921,Zoological and Botanical Gardens Operation,Entertainment,Zoos & Gardens
+892,Parks & Gardens Operations,8922,Nature Reserves and Conservation Operation,Entertainment,National Parks
+900,Creative & Performing Arts,9001,Performing Arts Operation,Entertainment,Theater & Shows
+900,Creative & Performing Arts,9002,Creative Arts Production and Distribution,Entertainment,Art Galleries
+900,Creative & Performing Arts,9003,Performing Arts Venue Operation,Entertainment,Event Venues
+941,Automotive Repair & Maintenance,9411,Motor Vehicle Engine and Parts Repair,Transport & Auto,Engine Repair
+941,Automotive Repair & Maintenance,9412,"Automotive Body, Paint & Interior Repair",Transport & Auto,Panel Beating
+941,Automotive Repair & Maintenance,9419,Other Automotive Repair & Maintenance,Transport & Auto,Auto Repairs
+942,Machinery & Equipment Repair,9421,Domestic Appliance Repair,Home Maintenance,Appliance Repair
+942,Machinery & Equipment Repair,9422,Electronic & Precision Equipment Repair,Tech & Electronics,Electronics Repair
+949,Other Repair & Maintenance,9491,"Clothing, Footwear and Personal Goods Repair",Clothes & Fashion,Alterations & Repairs
+949,Other Repair & Maintenance,9499,Other Repair and Maintenance n.e.c.,Home Maintenance,General Repairs
+952,Funeral & Cremation Services,9520,"Funeral, Cremation & Cemetery Services",Miscellaneous,Funeral Services
+954,Religious Organizations,9540,Religious Organizations Operations,Gifts & Donations,Religious Pledges
+955,Interest Groups & Unions,9551,Business and Professional Associations,Education & Career,Industry Bodies
+955,Interest Groups & Unions,9552,Labour Association Operation (Unions),Education & Career,Union Fees
+955,Interest Groups & Unions,9559,Other Interest Group Operation n.e.c.,Gifts & Donations,Community Groups
+329,Other Construction Services,3291,Landscape Construction Services,Home Maintenance,Landscapers
+329,Other Construction Services,3292,Glazing Services (Commercial),Home Maintenance,Glazing
+331,Agricultural Product Wholesaling,3311,Wool Wholesaling,Miscellaneous,Bulk Wool Broker
+331,Agricultural Product Wholesaling,3312,Cereal Grain Wholesaling,Miscellaneous,Bulk Grain Broker
+331,Agricultural Product Wholesaling,3319,Other Agricultural Product Wholesaling,Miscellaneous,Agricultural Trade
+332,"Grocery, Liquor & Tobacco Wholesale",3321,Grain Wholesaling,Food & Dining,Wholesale Grain
+332,"Grocery, Liquor & Tobacco Wholesale",3322,"Meat, Poultry and Smallgoods Whls",Food & Dining,Wholesale Meat
+332,"Grocery, Liquor & Tobacco Wholesale",3323,Dairy Produce Wholesaling,Food & Dining,Wholesale Dairy
+332,"Grocery, Liquor & Tobacco Wholesale",3324,Fish and Seafood Wholesaling,Food & Dining,Wholesale Seafood
+332,"Grocery, Liquor & Tobacco Wholesale",3325,Fruit and Vegetable Wholesaling,Food & Dining,Wholesale Produce
+332,"Grocery, Liquor & Tobacco Wholesale",3326,Liquor Wholesaling,Food & Dining,Wholesale Alcohol
+333,"Textile, Clothing & Footwear Whls",3331,Textile Product Wholesaling,Clothes & Fashion,Wholesale Fabric
+333,"Textile, Clothing & Footwear Whls",3332,Clothing Wholesaling,Clothes & Fashion,Wholesale Clothing
+333,"Textile, Clothing & Footwear Whls",3339,Footwear Wholesaling,Clothes & Fashion,Wholesale Shoes
+341,Chemical & Plastics Wholesaling,3411,Agricultural Chemical Wholesaling,Home Maintenance,Farm Chemicals
+341,Chemical & Plastics Wholesaling,3412,Industrial & Specialist Chemical Whls,Home Maintenance,Industrial Chemicals
+349,Other Goods Wholesaling,3491,Timber Wholesaling,Home Maintenance,Wholesale Timber
+349,Other Goods Wholesaling,3492,Hardware Wholesaling,Home Maintenance,Wholesale Hardware
+349,Other Goods Wholesaling,3499,Other Goods Wholesaling n.e.c.,Food & Dining,Wholesale Trade
+350,Motor Vehicle & Part Wholesaling,3501,Car Wholesaling,Transport & Auto,Auto Wholesalers
+350,Motor Vehicle & Part Wholesaling,3502,Commercial Vehicle Wholesaling,Transport & Auto,Truck Wholesalers
+350,Motor Vehicle & Part Wholesaling,3503,Motor Vehicle Parts Wholesaling,Transport & Auto,Wholesale Auto Parts
+380,Commission-Based Wholesaling,3800,Commission-Based Wholesaling,"Finance, Legal & Ins",Trade Brokers
+380,Commission-Based Wholesaling,3801,Stock and Station Agents,Miscellaneous,Livestock Broker
+392,Motor Cycle Retailing,3922,Motor Cycle Part & Accessory Retailing,Transport & Auto,Motorcycle Parts
+392,Motor Cycle Retailing,3929,Other Motor Cycle Retailing n.e.c.,Transport & Auto,Motorcycle Purchase
+412,Specialised Food Retailing,4124,Confectionery Retailing,Food & Dining,Candy Shops
+412,Specialised Food Retailing,4125,Health Food Retailing,Food & Dining,Health Food Stores
+426,Department Stores,4260,Discount Department Stores,Clothes & Fashion,Discount Outlets
+426,Department Stores,4261,Warehouse Discount Department Stores,Clothes & Fashion,Discount Warehouse
+501,Scenic & Sightseeing Transport,5011,Scenic & Sightseeing Water Transport,Travel & Holidays,Ferry Cruises
+501,Scenic & Sightseeing Transport,5012,Scenic & Sightseeing Air Transport,Travel & Holidays,Helicopter Tours
+510,Postal & Courier Services,5101,Postal Services,Miscellaneous,Post Offices
+510,Postal & Courier Services,5102,Courier Services,Miscellaneous,Courier Booking
+521,Transport Support Services,5212,Freight Forwarding Services,Miscellaneous,Freight Logistics
+521,Transport Support Services,5213,Customs Clearance Services,Miscellaneous,Customs Clearing
+529,Other Transport Support Services,5291,Customs Agency Services,Miscellaneous,Customs Fees
+529,Other Transport Support Services,5292,Container Terminal Operations,Miscellaneous,Shipping Ports
+541,Software Publishing,5412,Music & Video Game Publishing,Entertainment,Game Subscriptions
+541,Software Publishing,5413,Business Software Publishing,Tech & Electronics,Business Software
+542,Tech Support Services,5420,Data Processing & Hosting Services,Tech & Electronics,Web Hosting
+542,Tech Support Services,5421,Cloud Computing and Hosting Services,Tech & Electronics,Cloud Infrastructure
+623,Financial Auxiliary Services,6230,Insurance Broking Services,"Finance, Legal & Ins",Insurance Brokers
+623,Financial Auxiliary Services,6231,Mortgage Broking Services,"Finance, Legal & Ins",Mortgage Brokers
+642,Financial Auxiliary Services,6420,Stockbroking Services,Investments/Savings,Stock Brokers
+642,Financial Auxiliary Services,6421,Investment Advisory Services,Investments/Savings,Investment Advisers
+662,Motor Vehicle Renting,6620,Truck & Commercial Vehicle Rental,Home Maintenance,Truck Hire
+662,Motor Vehicle Renting,6621,Trailer and Heavy Equipment Rental,Home Maintenance,Equipment Rental
+693,Legal & Accounting Services,6932,Accounting & Bookkeeping Services,"Finance, Legal & Ins",Tax & Accounting
+693,Legal & Accounting Services,6933,Auditing and Assurance Services,"Finance, Legal & Ins",Business Audit
+729,Other Personal Services,7291,Personal Concierge Services,Miscellaneous,Concierge Services
+729,Other Personal Services,7299,Personal Services n.e.c.,Miscellaneous,General Services
+12,Grain-Sheep or Grain-Beef Cattle Farming,121,Grain-Sheep or Grain-Beef Cattle Farming,Miscellaneous,Farm Purchases
+12,Grain-Sheep or Grain-Beef Cattle Farming,122,Other Grain Growing,Miscellaneous,Farm Supplies
+13,Outdoor Vegetable Growing,130,Outdoor Vegetable Growing,Miscellaneous,Crop Direct
+14,"Sheep, Beef Cattle & Grain Farming",141,Sheep Farming,Miscellaneous,Livestock Purchases
+14,"Sheep, Beef Cattle & Grain Farming",142,Beef Cattle Farming (Specialised),Miscellaneous,Livestock Purchases
+14,"Sheep, Beef Cattle & Grain Farming",143,Beef Cattle Feedlots (Specialised),Miscellaneous,Livestock Purchases
+15,Dairy Cattle Farming,159,Other Dairy Cattle Farming,Miscellaneous,Dairy Farms
+16,Poultry Farming,162,Poultry Farming (Meat),Food & Dining,Poultry Farms
+18,Deer Farming,180,Deer Farming,Miscellaneous,Livestock Purchases
+20,Aquaculture,201,Offshore Longline Aquaculture,Food & Dining,Direct Seafood
+20,Aquaculture,203,Onshore Aquaculture,Food & Dining,Direct Seafood
+30,Forestry & Logging,302,Log Sawmilling Support Services,Home Maintenance,Timber Milling
+41,Coal Mining,412,Brown Coal Mining,Utilities & Bills,Bulk Fuel
+42,Oil & Gas Extraction,420,Oil and Gas Extraction Support Services,Utilities & Bills,LPG Infrastructure
+52,Copper Ore Mining,529,Other Copper Ore Mining,Home Maintenance,Industrial Metals
+60,Gold Ore Mining,600,Gold Ore Mining Operations,Investments/Savings,Precious Metals
+70,Non-Metallic Mineral Mining,701,Limestone Quarrying,Home Maintenance,Landscaping Supplies
+80,Mineral Exploration,801,Petroleum Exploration,Utilities & Bills,Energy Infrastructure
+91,Other Mining Support Services,911,Other Mining Support Services,Miscellaneous,Commercial Mining
+111,Meat & Meat Product Manufacturing,1112,Poultry Processing,Food & Dining,Bulk Butcher
+111,Meat & Meat Product Manufacturing,1113,Cured Meat and Smallgoods Manufacturing,Food & Dining,Bulk Deli
+113,Dairy Product Manufacturing,1132,Ice Cream Manufacturing,Food & Dining,Direct Dessert
+113,Dairy Product Manufacturing,1133,Cheese and Other Dairy Product Mfg,Food & Dining,Direct Cheese
+115,Oil and Fat Manufacturing,1150,Oil and Fat Manufacturing,Food & Dining,Cooking Oils
+119,Other Food Product Manufacturing,1191,Potato Crisp and Corn Chip Mfg,Food & Dining,Sweets Direct
+119,Other Food Product Manufacturing,1192,Prepared Animal and Bird Feed Mfg,Pets,Bulk Pet Food
+131,Textile Product Manufacturing,1312,Natural Textile Product Manufacturing,Miscellaneous,Textiles
+131,Textile Product Manufacturing,1313,Synthetic Textile Product Manufacturing,Miscellaneous,Textiles
+133,Textile Clothing Manufacturing,1332,Knitted Product Manufacturing,Clothes & Fashion,Apparel Factories
+134,Leather Product Manufacturing,1340,Leather Product Manufacturing,Clothes & Fashion,Leather Goods
+141,Log Sawmilling & Timber Dressing,1412,Wood Chipping,Home Maintenance,Timber Yards
+141,Log Sawmilling & Timber Dressing,1413,Timber Resawing and Dressing,Home Maintenance,Timber Yards
+151,"Pulp, Paper & Paperboard Mfg",1512,Paperboard Container Manufacturing,Education & Career,Packaging Supplies
+152,Converted Paper Product Mfg,1521,Sanitary Paper Product Manufacturing,Home Maintenance,Paper Consumables
+161,Printing,1612,Printing Trade Services,Education & Career,Printing Services
+162,Reproduction of Recorded Media,1620,Reproduction of Recorded Media,Entertainment,Media Replication
+181,Basic Chemical Manufacturing,1812,Basic Inorganic Chemical Mfg,Utilities & Bills,Industrial Gas
+181,Basic Chemical Manufacturing,1813,Basic Organic Chemical Mfg,Utilities & Bills,Industrial Gas
+182,Chemical Product Manufacturing,1821,Synthetic Resin and Rubber Mfg,Miscellaneous,Industrial Plastics
+183,Fertiliser and Pesticide Mfg,1831,Fertiliser Manufacturing,Home Maintenance,Fertilisers
+185,Cleaning Product & Toiletry Mfg,1853,Other Chemical Product Manufacturing,Home Maintenance,Chemical Supplies
+189,Other Chemical Product Mfg,1891,Explosives Manufacturing,Miscellaneous,Industrial Safety
+191,Polymer Product Manufacturing,1911,Polymer Film and Sheet Manufacturing,Miscellaneous,Plastic Materials
+191,Polymer Product Manufacturing,1913,Polymer Foam Product Manufacturing,Miscellaneous,Plastic Materials
+192,Natural Rubber Product Mfg,1920,Natural Rubber Product Manufacturing,Transport & Auto,Rubber Supplies
+202,Ceramic Product Manufacturing,2029,Other Ceramic Product Manufacturing,Home Maintenance,Ceramics
+203,"Cement, Lime, Plaster & Concrete",2032,Plaster Product Manufacturing,Home Maintenance,Plastering
+203,"Cement, Lime, Plaster & Concrete",2033,Concrete Product Manufacturing,Home Maintenance,Concrete
+209,Other Non-Metallic Mineral Product,2090,Other Non-Metallic Mineral Product Mfg,Home Maintenance,Industrial Stone
+211,Basic Iron and Steel Mfg,2110,Basic Iron and Steel Manufacturing,Home Maintenance,Iron Foundry
+212,Basic Non-Ferrous Metal Mfg,2121,Aluminium Smelting,Home Maintenance,Aluminium Works
+213,First Processing of Metal Mfg,2131,Iron and Steel Casting,Home Maintenance,Metal Casting
+221,Iron and Steel Structural Mfg,2210,Iron and Steel Structural Product Mfg,Home Maintenance,Structural Steel
+222,Structural Metal Product Mfg,2222,Architectural Aluminium Product Mfg,Home Maintenance,Aluminium Framing
+222,Structural Metal Product Mfg,2223,Architectural Metal Product Mfg n.e.c.,Home Maintenance,Metal Framing
+223,Metal Container Manufacturing,2230,Metal Container Manufacturing,Miscellaneous,Metal Boxes
+229,Other Fabricated Metal Product Mfg,2292,"Nut, Bolt, Screw and Rivet Manufacturing",Home Maintenance,Fasteners
+229,Other Fabricated Metal Product Mfg,2293,Metal Coating and Finishing,Home Maintenance,Metal Coating
+231,Motor Vehicle & Motor Vehicle Part,2312,Motor Vehicle Body and Trailer Mfg,Transport & Auto,Trailer Outfitting
+231,Motor Vehicle & Motor Vehicle Part,2313,Motor Vehicle Parts Manufacturing,Transport & Auto,Auto Parts Factory
+239,Other Transport Equipment Mfg,2399,Other Transport Equipment Mfg n.e.c.,Transport & Auto,Vehicle Components
+241,Professional & Scientific Equipment,2412,Medical and Surgical Equipment Mfg,Health & Medical,Medical Hardware
+241,Professional & Scientific Equipment,2419,Other Professional & Scientific Equip,Tech & Electronics,Scientific Tools
+242,Computer & Electronic Product Mfg,2422,Electronic Component Manufacturing,Tech & Electronics,Tech Components
+242,Computer & Electronic Product Mfg,2429,Other Electronic Equipment Mfg,Tech & Electronics,Electronic Parts
+243,Electrical Equipment Manufacturing,2432,Electric Lighting Equipment Manufacturing,Home Maintenance,Lighting Factory
+243,Electrical Equipment Manufacturing,2439,Other Electrical Equipment Manufacturing,Home Maintenance,Electrical Parts
+245,Other Machinery & Equipment Mfg,2451,Agricultural Machinery Manufacturing,Miscellaneous,Farm Machinery
+246,Mining & Construction Machinery,2461,Mining and Construction Machinery Mfg,Home Maintenance,Heavy Machinery
+249,Other Machinery & Equipment Mfg,2491,Lifting and Material Handling Equip Mfg,Home Maintenance,Forklifts & Cranes
+251,Furniture Manufacturing,2512,Metal Furniture Manufacturing,Home Maintenance,Metal Furniture
+251,Furniture Manufacturing,2513,Mattress Manufacturing,Home Maintenance,Mattress Factory
+251,Furniture Manufacturing,2519,Other Furniture Manufacturing n.e.c.,Home Maintenance,Furniture Mills
+321,Land Development & Site Preparation,3212,Site Preparation Services,Housing & Property,Excavation
+322,Building Structure Services,3225,Structural Steel Component Erection,Home Maintenance,Steel Construction
+325,Building Installation Services,3252,Fire and Security Alarm Installation,Home Maintenance,Security Setups
+411,Automotive Parts Retailing,4111,Automotive Parts Retailing,Transport & Auto,Auto Parts
+391,Motor Vehicle Retailing,3911,Motor Vehicle Retailing,Transport & Auto,Vehicle Purchase
+392,Motor Cycle Retailing,3921,Motor Cycle Retailing,Transport & Auto,Motorcycle Purchase
+431,Postal & Courier Services,4310,Postal & Courier Pick-up/Delivery,Miscellaneous,Post & Shipping
+521,Transport Support Services,5211,Taxi & Other Road Transport Support,Transport & Auto,Parking
+322,Building Structure Services,3223,Roofing Services,Home Maintenance,Roofing
+323,Building Installation Services,3231,Plumbing Services,Home Maintenance,Plumbing
+323,Building Installation Services,3232,Electrical Services,Home Maintenance,Electrical
+324,Building Completion Services,3241,Painting & Decorating Services,Home Maintenance,Painting
+324,Building Completion Services,3242,Glazing Services,Home Maintenance,Glazing
+400,Hardware & Garden Retailing,4000,"Hardware, Building & Garden Supplies",Home Maintenance,Hardware Supplies
+425,Marine Equipment Retailing,4251,Marine Equipment Retailing,Entertainment,Marine & Boating
+501,Scenic & Sightseeing Transport,5010,Scenic & Sightseeing Transport,Travel & Holidays,Sightseeing
+661,Motor Vehicle Renting,6611,Passenger Car Rental,Travel & Holidays,Car Rental
+911,Sports & Recreation Support,9113,Sports and Physical Recreation Activities,Entertainment,Sports Tickets
+911,Sports & Recreation Support,9114,Sports and Physical Recreation Clubs,Entertainment,Recreation Clubs
+920,Gambling Activities,9201,Casino Operations,Miscellaneous,Casinos
+953,Adult Personal Services,9533,Brothels & Escort Services,Miscellaneous,Adult Services
+641,Financial Auxiliary Services,6419,Other Auxiliary Finance & Investment,Investments/Savings,Investments
+541,Software Publishing,5411,Software Publishing,Tech & Electronics,Software
+541,Tech Support Services,5415,Computer System Design & Services,Tech & Electronics,Tech Services
+693,Legal & Accounting Services,6931,Legal Services,"Finance, Legal & Ins",Legal
+310,Food Product Manufacturing,3109,Other Food Product Manufacturing,Food & Dining,Food Subscriptions
+373,Wholesale Warehouse Retailing,3739,Other Goods Wholesaling,Food & Dining,Wholesale Shopping
+11,Nursery & Floriculture Production,111,Nursery & Floriculture Production,Miscellaneous,Plants & Florist
+14,"Sheep, Beef Cattle & Grain Farming",144,Sheep-Beef Cattle Farming,Miscellaneous,Farm Purchases
+16,Poultry Farming,161,Poultry Farming (Eggs),Food & Dining,Egg Farms
+17,Commercial Fishing,171,Line Fishing,Food & Dining,Direct Seafood
+19,Hunting and Trapping,191,Hunting and Trapping,Miscellaneous,Hunting Gear
+30,Forestry & Logging,301,Forestry & Logging Operations,Home Maintenance,Firewood & Timber
+41,Coal Mining,411,Coal Mining Operations,Utilities & Bills,Bulk Fuel
+51,Oil & Gas Extraction,510,Oil & Gas Extraction,Utilities & Bills,LPG Suppliers
+70,Non-Metallic Mineral Mining,700,Gravel & Sand Quarrying,Home Maintenance,Landscaping Supplies
+111,Meat & Meat Product Manufacturing,1111,Meat Processing,Food & Dining,Bulk Butcher
+112,Seafood Product Preparation,1120,Seafood Product Preparation,Food & Dining,Seafood Processing
+113,Dairy Product Manufacturing,1131,Milk & Cream Manufacturing,Food & Dining,Direct Dairy
+114,Fruit & Vegetable Processing,1140,Fruit & Vegetable Processing,Food & Dining,Preserves & Jams
+116,Grain Mill & Cereal Product Mfg,1161,Grain Mill Product Manufacturing,Food & Dining,Bulk Grain Flour
+117,Bakery Product Manufacturing,1171,Bread Manufacturing,Food & Dining,Bakery Direct
+118,Sugar & Confectionery Product Mfg,1182,Confectionery Manufacturing,Food & Dining,Sweets Direct
+121,Beverage Manufacturing,1211,Wine Manufacturing,Food & Dining,Wineries
+121,Beverage Manufacturing,1212,Beer Manufacturing,Food & Dining,Breweries
+121,Beverage Manufacturing,1213,Spirit Manufacturing,Food & Dining,Distilleries
+121,Beverage Manufacturing,1214,Soft Drink & Water Manufacturing,Food & Dining,Soft Drinks
+122,Cigarette & Tobacco Product Mfg,1220,Cigarette & Tobacco Product Mfg,Miscellaneous,Tobacco
+131,Textile Product Manufacturing,1311,Wool Scouring,Miscellaneous,Textiles
+132,Leather & Leather Product Mfg,1320,Leather Tanning & Product Mfg,Clothes & Fashion,Leather Goods
+133,Textile Clothing Manufacturing,1331,Regular Apparel Manufacturing,Clothes & Fashion,Apparel Factories
+135,Footwear Manufacturing,1351,Footwear Manufacturing,Clothes & Fashion,Shoe Factories
+141,Log Sawmilling & Timber Dressing,1411,Log Sawmilling,Home Maintenance,Timber Yards
+149,Other Wood Product Manufacturing,1491,Prefabricated Wooden Building Mfg,Home Maintenance,Prefab Buildings
+151,"Pulp, Paper & Paperboard Mfg",1511,"Pulp, Paper & Paperboard Mfg",Education & Career,Paper Supplies
+161,Printing,1611,Printing Support Services,Education & Career,Printing Services
+170,Petroleum & Coal Product Mfg,1701,Petroleum Refining,Transport & Auto,Refinery Oils
+181,Basic Chemical Manufacturing,1811,Industrial Gas Manufacturing,Utilities & Bills,Industrial Gas
+184,Pharmaceutical & Medicinal Mfg,1841,Pharmaceutical & Medicinal Product Mfg,Health & Medical,Drug Manufacturers
+185,Cleaning Product & Toiletry Mfg,1851,Soap & Other Detergent Manufacturing,Home Maintenance,Cleaning Products
+185,Cleaning Product & Toiletry Mfg,1852,Cosmetic & Toiletry Manufacturing,Personal Care,Perfumes & Soaps
+191,Polymer Product Manufacturing,1912,Rigid Plastic Packaging Container Mfg,Miscellaneous,Plastic Containers
+201,Glass & Glass Product Mfg,2010,Glass & Glass Product Manufacturing,Home Maintenance,Glass Suppliers
+202,Ceramic Product Manufacturing,2021,Brick Manufacturing,Home Maintenance,Bricks & Clay
+203,"Cement, Lime, Plaster & Concrete",2031,Ready-Mixed Concrete Manufacturing,Home Maintenance,Concrete
+222,Structural Metal Product Mfg,2221,Structural Steel Fabricating,Home Maintenance,Structural Steel
+224,Sheet Metal Product Manufacturing,2240,Sheet Metal Product Manufacturing,Home Maintenance,Sheet Metal
+229,Other Fabricated Metal Product Mfg,2291,Spring and Wire Manufacturing,Home Maintenance,Hardware Wire
+231,Motor Vehicle & Motor Vehicle Part,2311,Motor Vehicle Manufacturing,Transport & Auto,Auto Factories
+239,Other Transport Equipment Mfg,2391,Shipbuilding & Repair Services,Entertainment,Shipyard & Boats
+239,Other Transport Equipment Mfg,2392,Boatbuilding and Repair Services,Entertainment,Boat Repairs
+239,Other Transport Equipment Mfg,2393,Railway Rolling Stock Manufacturing,Transport & Auto,Train Components
+239,Other Transport Equipment Mfg,2394,Aircraft Manufacturing and Repair,Travel & Holidays,Aircraft Services
+241,Professional & Scientific Equipment,2411,"Photographic, Optical & Biomedical Mfg",Health & Medical,Optical Equipment
+242,Computer & Electronic Product Mfg,2421,Computer & Electronic Office Equip Mfg,Tech & Electronics,Tech Equipment
+243,Electrical Equipment Manufacturing,2431,Electric Cable and Wire Manufacturing,Home Maintenance,Electrical Wiring
+244,Domestic Appliance Manufacturing,2441,Domestic Appliance Manufacturing,Home Maintenance,Appliance Factories
+251,Furniture Manufacturing,2511,Wooden Furniture & Upholstery Mfg,Home Maintenance,Furniture Mills
+321,Land Development & Site Preparation,3211,Land Development & Subdivision,Housing & Property,Land Developers
+322,Building Structure Services,3221,Structural Steel Erection Services,Home Maintenance,Steel Construction
+322,Building Structure Services,3222,Bricklaying Services,Home Maintenance,Bricklayers
+322,Building Structure Services,3224,Concreting Services,Home Maintenance,Concreters
+325,Building Installation Services,3251,Air Conditioning & Heating Services,Home Maintenance,HVAC & Heating
+261,Electricity Supply,2611,Electricity Generation / Retail,Utilities & Bills,Electricity
+270,Gas Supply,2700,Gas Supply / Distribution,Utilities & Bills,Gas
+281,Water Supply & Sewerage,2811,Water Supply & Waste Networks,Utilities & Bills,Water
+291,Waste Collection,2911,Solid Waste Collection,Utilities & Bills,Waste Rates
+411,Supermarket & Grocery Retailing,4110,Supermarket & Grocery Stores,Food & Dining,Groceries
+412,Specialised Food Retailing,4121,"Fresh Meat, Fish & Poultry Retailing",Food & Dining,Butcher & Seafood
+412,Specialised Food Retailing,4122,Fruit & Vegetable Retailing,Food & Dining,Greengrocer
+412,Specialised Food Retailing,4123,Liquor Retailing,Food & Dining,Alcohol
+412,Specialised Food Retailing,4129,Other Specialised Food Retailing,Food & Dining,Bakery & Snacks
+451,"Cafes, Restaurants & Takeaway",4511,Cafes & Restaurants,Food & Dining,Restaurants
+451,"Cafes, Restaurants & Takeaway",4512,Takeaway Food Services,Food & Dining,Takeaway
+451,"Cafes, Restaurants & Takeaway",4513,Catering Services,Food & Dining,Meal Kits
+452,"Pubs, Bars & Clubs",4520,"Pubs, Bars & Nightclubs",Food & Dining,Bars & Pubs
+421,Furniture & Houseware Retailing,4211,Furniture Retailing,Home Maintenance,Furniture
+421,Furniture & Houseware Retailing,4212,Floor Coverings Retailing,Home Maintenance,Rug & Flooring
+421,Furniture & Houseware Retailing,4213,Houseware Retailing,Home Maintenance,Kitchenware
+421,Furniture & Houseware Retailing,4214,Domestic Hardware & Lumber Retailing,Home Maintenance,Tools & Lumber
+422,Electronics & Appliance Retailing,4221,"Electrical, Electronic & Gas Appliance",Home Maintenance,Appliances
+422,Electronics & Appliance Retailing,4222,Computer & Computer Peripheral,Tech & Electronics,Computers
+422,Electronics & Appliance Retailing,4229,Other Electrical & Electronic Goods,Tech & Electronics,Audio Gear
+423,Apparel & Footwear Retailing,4231,Clothing Retailing,Clothes & Fashion,Clothing
+423,Apparel & Footwear Retailing,4232,Footwear Retailing,Clothes & Fashion,Shoes
+424,Department Stores,4240,Department Stores,Clothes & Fashion,Department Stores
+425,Pharmaceutical & Toiletry Retailing,4252,Cosmetic & Toiletry Retailing,Personal Care,Cosmetics
+427,Recreational Goods Retailing,4271,Sport & Camping Equipment Retailing,Clothes & Fashion,Sporting Goods
+427,Recreational Goods Retailing,4272,Entertainment Media Retailing,Entertainment,Gaming
+427,Recreational Goods Retailing,4273,Toy & Game Retailing,Family & Children,Toys
+427,Recreational Goods Retailing,4274,Newspaper & Book Retailing,Entertainment,Books
+427,Recreational Goods Retailing,4279,Other Recreational Goods Retailing,Entertainment,Hobbies
+580,Telecommunications Services,5801,Wired Telecom (Broadband),Utilities & Bills,Internet
+580,Telecommunications Services,5802,Wireless Telecom (Mobile),Utilities & Bills,Mobile
+462,Road Transport (Passenger),4621,Interurban/Rural Bus Transport,Transport & Auto,Regional Transit
+462,Road Transport (Passenger),4622,Urban Bus / Tram Transport,Transport & Auto,Public Transport
+462,Road Transport (Passenger),4623,Taxi & Rideshare Services,Transport & Auto,Rideshares
+490,Air and Space Transport,4900,Air and Space Transport,Travel & Holidays,Airlines
+722,Travel Agency Services,7220,Travel Agency & Tour Arrangement,Travel & Holidays,Travel Booking
+671,Property Operators,6711,Residential Property Operators,Housing & Property,Rent
+622,Banking & Financial Services,6221,Central Banking / Retail Banking,"Finance, Legal & Ins",Bank Fees
+622,Banking & Financial Services,6222,Building Societies / Credit Unions,"Finance, Legal & Ins",Credit Union Fees
+631,Life Insurance,6310,Life Insurance & Income Protection,"Finance, Legal & Ins",Life Insurance
+632,Health & General Insurance,6321,Health Insurance,Health & Medical,Health Insurance
+632,Health & General Insurance,6322,General Insurance,Transport & Auto,Car Insurance
+840,Medical & Health Services,8401,General Practice Medical,Health & Medical,Doctor & GP
+840,Medical & Health Services,8402,Specialist Medical Services,Health & Medical,Medical Specialists
+840,Medical & Health Services,8403,Dental Services,Health & Medical,Dental
+851,Other Health Care Services,8511,Optometrists & Optical Care,Health & Medical,Optical
+853,Allied Health Services,8539,Allied Health (Physio/Chiro),Health & Medical,Allied Health
+801,Preschool & Child Care,8010,Preschool & Child Care Services,Family & Children,Childcare
+802,School Education,8021,Primary Education,Family & Children,Primary School
+802,School Education,8022,Secondary Education,Family & Children,High School
+810,Tertiary Education,8101,Technical & Vocational Education,Education & Career,TAFE & Training
+810,Tertiary Education,8102,Higher Education,Education & Career,Student Loans
+551,Motion Picture & Video,5514,Post-production & Digital Media,Entertainment,Streaming
+911,Sports & Recreation,9111,Health & Fitness Centers,Personal Care,Gym & Fitness
+911,Sports & Recreation,9112,Sports and Physical Recreation,Family & Children,Kids' Activities
+913,Amusement & Gambling,9131,Amusement Parks & Arcades,Entertainment,Amusements
+913,Amusement & Gambling,9133,Lottery & Gambling Operations,Miscellaneous,Gambling
+951,Personal Care Services,9511,Hairdressing & Beauty Services,Personal Care,Hair & Beauty
+953,Other Personal Services,9531,Laundry & Dry Cleaning Services,Clothes & Fashion,Laundry
+953,Other Personal Services,9532,Photographic Film Processing,Tech & Electronics,Photography
+953,Other Personal Services,9539,Personal Services n.e.c. (Pet Care),Pets,Vet & Pet Care

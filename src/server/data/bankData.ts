@@ -57,6 +57,14 @@ export async function listTransactionsForOwner(
         direction: true,
         postDate: true,
         status: true,
+        subclassCode: true,
+        groupCode: true,
+        parentCategory: true,
+        expenseCategory: true,
+        flowType: true,
+        basiqTxClass: true,
+        categoryConfidence: true,
+        categorySource: true,
         // Avoid raw_payload on list endpoints
         account: { select: { name: true, currency: true } },
       },
@@ -100,6 +108,11 @@ export async function exportTransactionsForOwner(ownerUserId: string) {
       direction: string;
       postDate: Date | null;
       status: string | null;
+      subclassCode: string | null;
+      groupCode: number | null;
+      parentCategory: string | null;
+      expenseCategory: string | null;
+      categorySource: string | null;
       rawPayload: unknown;
       account: { name: string | null; currency: string; type: string | null };
     }> = [];
@@ -118,6 +131,11 @@ export async function exportTransactionsForOwner(ownerUserId: string) {
           direction: true,
           postDate: true,
           status: true,
+          subclassCode: true,
+          groupCode: true,
+          parentCategory: true,
+          expenseCategory: true,
+          categorySource: true,
           rawPayload: true,
           account: { select: { name: true, currency: true, type: true } },
         },

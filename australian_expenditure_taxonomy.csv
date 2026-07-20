@@ -1,0 +1,251 @@
+group_code,group_title,subclass_code,subclass_title,full_label
+1,Residential Housing Mortgage & Debt Servicing,1.1,Owner-Occupied Principal & Interest (P&I),1.1 Owner-Occupied Principal & Interest (P&I)
+1,Residential Housing Mortgage & Debt Servicing,1.2,Investment Property Mortgage Interest Outflows,1.2 Investment Property Mortgage Interest Outflows
+1,Residential Housing Mortgage & Debt Servicing,1.3,Fixed-Rate Term Split Servicing,1.3 Fixed-Rate Term Split Servicing
+1,Residential Housing Mortgage & Debt Servicing,1.4,Line of Credit / Offset Account Fees,1.4 Line of Credit / Offset Account Fees
+1,Residential Housing Mortgage & Debt Servicing,1.5,Mortgage Protection Premium Fees,1.5 Mortgage Protection Premium Fees
+2,Tenant Rental Commitments,2.1,Residential Tenancy Lease Payments (Agency),2.1 Residential Tenancy Lease Payments (Agency)
+2,Tenant Rental Commitments,2.2,Private Landlord Electronic Transfers (P2P),2.2 Private Landlord Electronic Transfers (P2P)
+2,Tenant Rental Commitments,2.3,Commercial / Retail Space Rental,2.3 Commercial / Retail Space Rental
+2,Tenant Rental Commitments,2.4,Student Accommodation Fixed Boarding Fees,2.4 Student Accommodation Fixed Boarding Fees
+2,Tenant Rental Commitments,2.5,Rental Bond Lodgements (RTBA),2.5 Rental Bond Lodgements (RTBA)
+3,Local Government & Strata Property Infrastructure Levies,3.1,Municipal Council General Rates,3.1 Municipal Council General Rates
+3,Local Government & Strata Property Infrastructure Levies,3.2,Emergency Services Levies (ESL),3.2 Emergency Services Levies (ESL)
+3,Local Government & Strata Property Infrastructure Levies,3.3,Strata Corporate Administration Fees,3.3 Strata Corporate Administration Fees
+3,Local Government & Strata Property Infrastructure Levies,3.4,Special Property Capital Works Levies,3.4 Special Property Capital Works Levies
+3,Local Government & Strata Property Infrastructure Levies,3.5,Council Waste Management / Garbage Fees,3.5 Council Waste Management / Garbage Fees
+4,Electricity Utilities Supply,4.1,Residential Peak/Off-Peak General Tariffs,4.1 Residential Peak/Off-Peak General Tariffs
+4,Electricity Utilities Supply,4.2,Controlled Load Storage Heating Outlays,4.2 Controlled Load Storage Heating Outlays
+4,Electricity Utilities Supply,4.3,Solar Feed-In Tariff Account Variances,4.3 Solar Feed-In Tariff Account Variances
+4,Electricity Utilities Supply,4.4,Commercial Grid Supply Connections,4.4 Commercial Grid Supply Connections
+4,Electricity Utilities Supply,4.5,GreenPower Renewable Surcharge Premiums,4.5 GreenPower Renewable Surcharge Premiums
+5,Gas Infrastructure Utilities Supply,5.1,Mains Reticulated Natural Gas Usage,5.1 Mains Reticulated Natural Gas Usage
+5,Gas Infrastructure Utilities Supply,5.2,Bottled LPG Cylinder Swap & Delivery Fees,5.2 Bottled LPG Cylinder Swap & Delivery Fees
+5,Gas Infrastructure Utilities Supply,5.3,Fixed Supply Daily Connection Levies,5.3 Fixed Supply Daily Connection Levies
+5,Gas Infrastructure Utilities Supply,5.4,Hot Water Gas Central Plant Allocations,5.4 Hot Water Gas Central Plant Allocations
+5,Gas Infrastructure Utilities Supply,5.5,Gas Equipment Maintenance Services,5.5 Gas Equipment Maintenance Services
+6,Water Supply & Sewage Access Networks,6.1,Variable Water Inflow Usage Charges,6.1 Variable Water Inflow Usage Charges
+6,Water Supply & Sewage Access Networks,6.2,Fixed Water Network Access Levies,6.2 Fixed Water Network Access Levies
+6,Water Supply & Sewage Access Networks,6.3,Sewage Service & Drainage Access Tariffs,6.3 Sewage Service & Drainage Access Tariffs
+6,Water Supply & Sewage Access Networks,6.4,Parks & Environmental Infrastructure Levies,6.4 Parks & Environmental Infrastructure Levies
+6,Water Supply & Sewage Access Networks,6.5,Fire Service Network Connection Tariffs,6.5 Fire Service Network Connection Tariffs
+7,Fixed Line Home Broadband & Connectivity Networks,7.1,NBN Standard Wholesale Speed Tariffs,7.1 NBN Standard Wholesale Speed Tariffs
+7,Fixed Line Home Broadband & Connectivity Networks,7.2,NBN Ultrafast Fibre-to-the-Premises (FTTP) Tiers,7.2 NBN Ultrafast Fibre-to-the-Premises (FTTP) Tiers
+7,Fixed Line Home Broadband & Connectivity Networks,7.3,4G/5G Home Wireless Internet Data Plans,7.3 4G/5G Home Wireless Internet Data Plans
+7,Fixed Line Home Broadband & Connectivity Networks,7.4,Fixed Wireless / Satellite Ingestion Plans (Starlink),7.4 Fixed Wireless / Satellite Ingestion Plans (Starlink)
+7,Fixed Line Home Broadband & Connectivity Networks,7.5,VoIP Fixed Landline Network Add-Ons,7.5 VoIP Fixed Landline Network Add-Ons
+8,Mobile Telecommunications Networks,8.1,Postpaid Mobile Network Service SIM Plans,8.1 Postpaid Mobile Network Service SIM Plans
+8,Mobile Telecommunications Networks,8.2,Prepaid Mobile Network Recharges / Top-Ups,8.2 Prepaid Mobile Network Recharges / Top-Ups
+8,Mobile Telecommunications Networks,8.3,Multi-Device Shared Family Plan Surcharges,8.3 Multi-Device Shared Family Plan Surcharges
+8,Mobile Telecommunications Networks,8.4,International Roaming Connection Add-Ons,8.4 International Roaming Connection Add-Ons
+8,Mobile Telecommunications Networks,8.5,Mobile Device Lease/Financing Repayments,8.5 Mobile Device Lease/Financing Repayments
+9,Supermarket Groceries,9.1,"Tier-1 Major Supermarkets (Coles, Woolworths)","9.1 Tier-1 Major Supermarkets (Coles, Woolworths)"
+9,Supermarket Groceries,9.2,Discount Global Supermarkets (ALDI),9.2 Discount Global Supermarkets (ALDI)
+9,Supermarket Groceries,9.3,"Local Independent Grocery Outlets (IGA, Foodworks)","9.3 Local Independent Grocery Outlets (IGA, Foodworks)"
+9,Supermarket Groceries,9.4,Direct Online Grocery Home Delivery (Milkrun),9.4 Direct Online Grocery Home Delivery (Milkrun)
+9,Supermarket Groceries,9.5,Institutional Bulk Wholesale Groceries (Costco),9.5 Institutional Bulk Wholesale Groceries (Costco)
+10,Specialty Fresh Food Retail Outlets,10.1,Specialized Butcher / Meat Wholesale Outlets,10.1 Specialized Butcher / Meat Wholesale Outlets
+10,Specialty Fresh Food Retail Outlets,10.2,Fresh Seafood Specialized Markets,10.2 Fresh Seafood Specialized Markets
+10,Specialty Fresh Food Retail Outlets,10.3,Bakeries & Specialized Pastry Outlets,10.3 Bakeries & Specialized Pastry Outlets
+10,Specialty Fresh Food Retail Outlets,10.4,Greengrocers & Fresh Fruit Markets,10.4 Greengrocers & Fresh Fruit Markets
+10,Specialty Fresh Food Retail Outlets,10.5,Delicatessens & Specialty Health Food Stores,10.5 Delicatessens & Specialty Health Food Stores
+11,Automotive Retail Fuel Networks,11.1,Premium Unleaded Petrol Formulations (95/98 RON),11.1 Premium Unleaded Petrol Formulations (95/98 RON)
+11,Automotive Retail Fuel Networks,11.2,E10 / Regular Unleaded Fuel Purchases (91 RON),11.2 E10 / Regular Unleaded Fuel Purchases (91 RON)
+11,Automotive Retail Fuel Networks,11.3,Commercial Diesel Fuel Network Purchases,11.3 Commercial Diesel Fuel Network Purchases
+11,Automotive Retail Fuel Networks,11.4,Public EV Charging Station Grid Surcharges (Chargefox),11.4 Public EV Charging Station Grid Surcharges (Chargefox)
+11,Automotive Retail Fuel Networks,11.5,Convenience Store Service Station Add-Ons,11.5 Convenience Store Service Station Add-Ons
+12,Public Transport & Commuter Logistics,12.1,"Programmatic Smartcard Network Taps (myki, Opal, go card)","12.1 Programmatic Smartcard Network Taps (myki, Opal, go card)"
+12,Public Transport & Commuter Logistics,12.2,"Inter-City Regional Rail Network Bookings (V/Line, NSW TrainLink)","12.2 Inter-City Regional Rail Network Bookings (V/Line, NSW TrainLink)"
+12,Public Transport & Commuter Logistics,12.3,Urban Ferry & Water Taxi Logistics,12.3 Urban Ferry & Water Taxi Logistics
+12,Public Transport & Commuter Logistics,12.4,Metro/Light Rail Specialized Multi-Day Passes,12.4 Metro/Light Rail Specialized Multi-Day Passes
+12,Public Transport & Commuter Logistics,12.5,Contactless Bank Card Transit Network Taps,12.5 Contactless Bank Card Transit Network Taps
+13,State Infrastructure Toll Road Access Networks,13.1,Automated Linkt Highway E-Tag Top-Ups,13.1 Automated Linkt Highway E-Tag Top-Ups
+13,State Infrastructure Toll Road Access Networks,13.2,Transurban Motorway Passage Invoice Surcharges,13.2 Transurban Motorway Passage Invoice Surcharges
+13,State Infrastructure Toll Road Access Networks,13.3,EastLink Tollway Account Clearing Repayments,13.3 EastLink Tollway Account Clearing Repayments
+13,State Infrastructure Toll Road Access Networks,13.4,Inter-State Commercial Freight Toll Surcharges,13.4 Inter-State Commercial Freight Toll Surcharges
+13,State Infrastructure Toll Road Access Networks,13.5,License Plate Recognition Processing Fees,13.5 License Plate Recognition Processing Fees
+14,Automotive Lifecycle Licensing & Registration,14.1,State VicRoads/TfNSW Passenger Vehicle Registration,14.1 State VicRoads/TfNSW Passenger Vehicle Registration
+14,Automotive Lifecycle Licensing & Registration,14.2,Compulsory Third Party (CTP) Insurance Greenslips,14.2 Compulsory Third Party (CTP) Insurance Greenslips
+14,Automotive Lifecycle Licensing & Registration,14.3,Personal Operator Driver Licensing Renewal Fees,14.3 Personal Operator Driver Licensing Renewal Fees
+14,Automotive Lifecycle Licensing & Registration,14.4,Custom Vehicle Registration Plate Levies,14.4 Custom Vehicle Registration Plate Levies
+14,Automotive Lifecycle Licensing & Registration,14.5,Heavy Vehicle Transport Registration Fees,14.5 Heavy Vehicle Transport Registration Fees
+15,Commercial On-Demand Rideshare & Taxi Networks,15.1,"On-Demand Rideshare Journeys (Uber, DiDi)","15.1 On-Demand Rideshare Journeys (Uber, DiDi)"
+15,Commercial On-Demand Rideshare & Taxi Networks,15.2,Premium Executive Corporate Rideshare Services,15.2 Premium Executive Corporate Rideshare Services
+15,Commercial On-Demand Rideshare & Taxi Networks,15.3,Metered Commercial Urban Taxi Bookings (13cabs),15.3 Metered Commercial Urban Taxi Bookings (13cabs)
+15,Commercial On-Demand Rideshare & Taxi Networks,15.4,Airport Shuttle Shared Logistics Booking Tiers,15.4 Airport Shuttle Shared Logistics Booking Tiers
+15,Commercial On-Demand Rideshare & Taxi Networks,15.5,Micro-Mobility Electric Scooter Hires (Lime),15.5 Micro-Mobility Electric Scooter Hires (Lime)
+16,Private Health Insurance Infrastructure,16.1,Combined Hospital & Extras Comprehensive Policies,16.1 Combined Hospital & Extras Comprehensive Policies
+16,Private Health Insurance Infrastructure,16.2,Core Hospital-Only Essential Health Cover,16.2 Core Hospital-Only Essential Health Cover
+16,Private Health Insurance Infrastructure,16.3,General Extras-Only Ancillary Cover Policies,16.3 General Extras-Only Ancillary Cover Policies
+16,Private Health Insurance Infrastructure,16.4,Overseas Student Health Cover (OSHC) Policies,16.4 Overseas Student Health Cover (OSHC) Policies
+16,Private Health Insurance Infrastructure,16.5,Corporate Health Insurance Program Surcharges,16.5 Corporate Health Insurance Program Surcharges
+17,Comprehensive Vehicle Insurance Portfolio,17.1,Comprehensive Private Passenger Vehicle Insurance,17.1 Comprehensive Private Passenger Vehicle Insurance
+17,Comprehensive Vehicle Insurance Portfolio,17.2,"Third-Party Property, Fire & Theft Automotive Cover","17.2 Third-Party Property, Fire & Theft Automotive Cover"
+17,Comprehensive Vehicle Insurance Portfolio,17.3,Third-Party Property-Only Automotive Cover,17.3 Third-Party Property-Only Automotive Cover
+17,Comprehensive Vehicle Insurance Portfolio,17.4,Specialized Fleet / Commercial Vehicle Policies,17.4 Specialized Fleet / Commercial Vehicle Policies
+17,Comprehensive Vehicle Insurance Portfolio,17.5,Rideshare Driver Rideshare Extension Surcharges,17.5 Rideshare Driver Rideshare Extension Surcharges
+18,Residential Home & Contents Asset Protection Insurance,18.1,Comprehensive Building Owner Property Insurance,18.1 Comprehensive Building Owner Property Insurance
+18,Residential Home & Contents Asset Protection Insurance,18.2,Standalone Tenant Contents Insurance Policies,18.2 Standalone Tenant Contents Insurance Policies
+18,Residential Home & Contents Asset Protection Insurance,18.3,Landlord Specialized Property Protection Cover,18.3 Landlord Specialized Property Protection Cover
+18,Residential Home & Contents Asset Protection Insurance,18.4,High-Value Individual Item Asset Surcharges,18.4 High-Value Individual Item Asset Surcharges
+18,Residential Home & Contents Asset Protection Insurance,18.5,Strata Residential Building Protection Portions,18.5 Strata Residential Building Protection Portions
+19,"Institutional Life, Income & Permanent Disability Insurance",19.1,Independent Term Life Insurance Coverage,19.1 Independent Term Life Insurance Coverage
+19,"Institutional Life, Income & Permanent Disability Insurance",19.2,Total and Permanent Disability (TPD) Surcharges,19.2 Total and Permanent Disability (TPD) Surcharges
+19,"Institutional Life, Income & Permanent Disability Insurance",19.3,Continuous Income Protection Insurance Coverage,19.3 Continuous Income Protection Insurance Coverage
+19,"Institutional Life, Income & Permanent Disability Insurance",19.4,Trauma / Critical Illness Specialist Premiums,19.4 Trauma / Critical Illness Specialist Premiums
+19,"Institutional Life, Income & Permanent Disability Insurance",19.5,Direct Superannuation Retail Insurance Deductions,19.5 Direct Superannuation Retail Insurance Deductions
+20,"Retail Hospitality Dining, Cafes & Restaurants",20.1,Metro Cafes & Daytime Espresso Outlets,20.1 Metro Cafes & Daytime Espresso Outlets
+20,"Retail Hospitality Dining, Cafes & Restaurants",20.2,Premium Fine Dining & Licensed Standard Restaurants,20.2 Premium Fine Dining & Licensed Standard Restaurants
+20,"Retail Hospitality Dining, Cafes & Restaurants",20.3,Local Fast-Casual Dining & Bistro Outlets,20.3 Local Fast-Casual Dining & Bistro Outlets
+20,"Retail Hospitality Dining, Cafes & Restaurants",20.4,Hotel & Event Hospitality Catering Services,20.4 Hotel & Event Hospitality Catering Services
+20,"Retail Hospitality Dining, Cafes & Restaurants",20.5,Food Court & Market Casual Dining Outlets,20.5 Food Court & Market Casual Dining Outlets
+21,On-Demand Meal Delivery Services,21.1,"Courier Meal Delivery Apps (UberEats, DoorDash, Menulog)","21.1 Courier Meal Delivery Apps (UberEats, DoorDash, Menulog)"
+21,On-Demand Meal Delivery Services,21.2,Subscription Subscription Meal Delivery Service Apps,21.2 Subscription Subscription Meal Delivery Service Apps
+21,On-Demand Meal Delivery Services,21.3,"Subscription Weekly Ingredient Boxes (HelloFresh, Marley Spoon)","21.3 Subscription Weekly Ingredient Boxes (HelloFresh, Marley Spoon)"
+21,On-Demand Meal Delivery Services,21.4,Pre-Prepared Gourmet Nutrition Delivery Services (My Muscle Chef),21.4 Pre-Prepared Gourmet Nutrition Delivery Services (My Muscle Chef)
+21,On-Demand Meal Delivery Services,21.5,Specialized Local Restaurant App Direct Delivery Fees,21.5 Specialized Local Restaurant App Direct Delivery Fees
+22,Digital Media Entertainment & Tech Subscriptions,22.1,"Video Streaming Subscription Services (Netflix, Stan, Disney+)","22.1 Video Streaming Subscription Services (Netflix, Stan, Disney+)"
+22,Digital Media Entertainment & Tech Subscriptions,22.2,"Audio Streaming Platform Services (Spotify, Apple Music)","22.2 Audio Streaming Platform Services (Spotify, Apple Music)"
+22,Digital Media Entertainment & Tech Subscriptions,22.3,"AI Software Utility Subscriptions (Cursor AI, ChatGPT Plus, Claude)","22.3 AI Software Utility Subscriptions (Cursor AI, ChatGPT Plus, Claude)"
+22,Digital Media Entertainment & Tech Subscriptions,22.4,"Cloud Data Storage Subscription Services (iCloud, Google One)","22.4 Cloud Data Storage Subscription Services (iCloud, Google One)"
+22,Digital Media Entertainment & Tech Subscriptions,22.5,"Professional Software Subscriptions (Adobe Creative Cloud, Canva)","22.5 Professional Software Subscriptions (Adobe Creative Cloud, Canva)"
+23,Licensed Hospitality Venues & Retail Alcohol Networks,23.1,"Retail Bottle Shop Chains (Dan Murphy's, BWS, Liquorland)","23.1 Retail Bottle Shop Chains (Dan Murphy's, BWS, Liquorland)"
+23,Licensed Hospitality Venues & Retail Alcohol Networks,23.2,"Pubs, Taverns & Boutique Beer Bars","23.2 Pubs, Taverns & Boutique Beer Bars"
+23,Licensed Hospitality Venues & Retail Alcohol Networks,23.3,Registered Clubs & Entertainment RSL Venues,23.3 Registered Clubs & Entertainment RSL Venues
+23,Licensed Hospitality Venues & Retail Alcohol Networks,23.4,Cocktail Lounges & Nightclub Venues,23.4 Cocktail Lounges & Nightclub Venues
+23,Licensed Hospitality Venues & Retail Alcohol Networks,23.5,Specialty Wine Subscriptions & Vineyard Cellar Doors,23.5 Specialty Wine Subscriptions & Vineyard Cellar Doors
+24,Commercial Fitness & Wellness Facilities,24.1,24/7 Access Gym Network Memberships (Anytime Fitness),24.1 24/7 Access Gym Network Memberships (Anytime Fitness)
+24,Commercial Fitness & Wellness Facilities,24.2,"Boutique Group Training Studios (F45, Bodyfit)","24.2 Boutique Group Training Studios (F45, Bodyfit)"
+24,Commercial Fitness & Wellness Facilities,24.3,"Premium Pilates, Yoga & Barre Studio Memberships","24.3 Premium Pilates, Yoga & Barre Studio Memberships"
+24,Commercial Fitness & Wellness Facilities,24.4,Municipal Swimming Pool & Aquatic Center Passes,24.4 Municipal Swimming Pool & Aquatic Center Passes
+24,Commercial Fitness & Wellness Facilities,24.5,One-on-One Personal Training Session Fees,24.5 One-on-One Personal Training Session Fees
+25,"Apparel, Fashion & Fast-Retail Footwear",25.1,"High-Street Department Store Purchases (Myer, David Jones)","25.1 High-Street Department Store Purchases (Myer, David Jones)"
+25,"Apparel, Fashion & Fast-Retail Footwear",25.2,"Fast-Fashion Apparel Retail Stores (Zara, H&M, Uniqlo)","25.2 Fast-Fashion Apparel Retail Stores (Zara, H&M, Uniqlo)"
+25,"Apparel, Fashion & Fast-Retail Footwear",25.3,Premium Designer Brand Fashion Boutiques,25.3 Premium Designer Brand Fashion Boutiques
+25,"Apparel, Fashion & Fast-Retail Footwear",25.4,Specialized Athletic Apparel & Footwear Stores,25.4 Specialized Athletic Apparel & Footwear Stores
+25,"Apparel, Fashion & Fast-Retail Footwear",25.5,Specialized Online Fashion Retailing Channels (THE ICONIC),25.5 Specialized Online Fashion Retailing Channels (THE ICONIC)
+26,Community Pharmacy & Personal Care Networks,26.1,Discount Pharmacy Chains (Chemist Warehouse),26.1 Discount Pharmacy Chains (Chemist Warehouse)
+26,Community Pharmacy & Personal Care Networks,26.2,Prescribed Medication Co-Payments (PBS Schemes),26.2 Prescribed Medication Co-Payments (PBS Schemes)
+26,Community Pharmacy & Personal Care Networks,26.3,Over-The-Counter Medical & Vitamin Formulations,26.3 Over-The-Counter Medical & Vitamin Formulations
+26,Community Pharmacy & Personal Care Networks,26.4,Premium Cosmetics & Clinical Skincare Specialty Retailers (Mecca),26.4 Premium Cosmetics & Clinical Skincare Specialty Retailers (Mecca)
+26,Community Pharmacy & Personal Care Networks,26.5,Specialized Optical & Contact Lens Supply Retailers,26.5 Specialized Optical & Contact Lens Supply Retailers
+27,"Primary Clinical Medical, Dental & Allied Healthcare",27.1,General Practitioner (GP) Medicare Gap Fee Outlays,27.1 General Practitioner (GP) Medicare Gap Fee Outlays
+27,"Primary Clinical Medical, Dental & Allied Healthcare",27.2,General Clinical Dentistry & Orthodontic Services,27.2 General Clinical Dentistry & Orthodontic Services
+27,"Primary Clinical Medical, Dental & Allied Healthcare",27.3,Allied Health Physiotherapy & Chiropractic Treatments,27.3 Allied Health Physiotherapy & Chiropractic Treatments
+27,"Primary Clinical Medical, Dental & Allied Healthcare",27.4,Mental Health Psychology Clinical Consultation Outlays,27.4 Mental Health Psychology Clinical Consultation Outlays
+27,"Primary Clinical Medical, Dental & Allied Healthcare",27.5,Diagnostic Imaging & Pathology Laboratory Co-Payments,27.5 Diagnostic Imaging & Pathology Laboratory Co-Payments
+28,Early Childhood Education & Daycare Structures,28.1,Regulated Long Daycare Session Fees,28.1 Regulated Long Daycare Session Fees
+28,Early Childhood Education & Daycare Structures,28.2,Before & After School Care (OSHC) Programs,28.2 Before & After School Care (OSHC) Programs
+28,Early Childhood Education & Daycare Structures,28.3,Standalone Community Kindergarten / Preschool Levies,28.3 Standalone Community Kindergarten / Preschool Levies
+28,Early Childhood Education & Daycare Structures,28.4,Professional Private In-Home Nanny Services,28.4 Professional Private In-Home Nanny Services
+28,Early Childhood Education & Daycare Structures,28.5,Specialized Early Childhood Creative / Sports Extracurriculars,28.5 Specialized Early Childhood Creative / Sports Extracurriculars
+29,"Primary, Secondary & Higher Educational Fees",29.1,Private Independent School Tuition Term Fees,29.1 Private Independent School Tuition Term Fees
+29,"Primary, Secondary & Higher Educational Fees",29.2,Catholic Systemic School Tuition & Building Levies,29.2 Catholic Systemic School Tuition & Building Levies
+29,"Primary, Secondary & Higher Educational Fees",29.3,Government State School Voluntary Contributions & Materials,29.3 Government State School Voluntary Contributions & Materials
+29,"Primary, Secondary & Higher Educational Fees",29.4,Higher Education University Technical Textbooks & Amenities (SSAF),29.4 Higher Education University Technical Textbooks & Amenities (SSAF)
+29,"Primary, Secondary & Higher Educational Fees",29.5,Specialized Vocational Technical Training / Certification Courses,29.5 Specialized Vocational Technical Training / Certification Courses
+30,Consumer Credit Servicing & Financial Facility Surcharges,30.1,Credit Card Interest Charges & Annual Fees,30.1 Credit Card Interest Charges & Annual Fees
+30,Consumer Credit Servicing & Financial Facility Surcharges,30.2,Personal Unsecured Loan Scheduled Principal & Interest,30.2 Personal Unsecured Loan Scheduled Principal & Interest
+30,Consumer Credit Servicing & Financial Facility Surcharges,30.3,Buy-Now-Pay-Later Account Management Fees,30.3 Buy-Now-Pay-Later Account Management Fees
+30,Consumer Credit Servicing & Financial Facility Surcharges,30.4,Retail Bank Account Maintenance & ATM Access Fees,30.4 Retail Bank Account Maintenance & ATM Access Fees
+30,Consumer Credit Servicing & Financial Facility Surcharges,30.5,Foreign Transaction Processing Interchange Surcharges,30.5 Foreign Transaction Processing Interchange Surcharges
+31,Domestic Pet Veterinary Services & Supply Management,31.1,Emergency & Routine Veterinary Clinical Services,31.1 Emergency & Routine Veterinary Clinical Services
+31,Domestic Pet Veterinary Services & Supply Management,31.2,Dedicated Pet Insurance Premium Policies,31.2 Dedicated Pet Insurance Premium Policies
+31,Domestic Pet Veterinary Services & Supply Management,31.3,Specialized Premium Pet Nutrition & Food Formulation Retail,31.3 Specialized Premium Pet Nutrition & Food Formulation Retail
+31,Domestic Pet Veterinary Services & Supply Management,31.4,Pet Grooming & Specialty Boarding Kennel Operations,31.4 Pet Grooming & Specialty Boarding Kennel Operations
+31,Domestic Pet Veterinary Services & Supply Management,31.5,Preventive Medication & Flea/Tick Treatments,31.5 Preventive Medication & Flea/Tick Treatments
+32,Aviation Logistics & Holiday Accommodation,32.1,"Domestic Airline Travel Bookings (Qantas, Virgin, Jetstar)","32.1 Domestic Airline Travel Bookings (Qantas, Virgin, Jetstar)"
+32,Aviation Logistics & Holiday Accommodation,32.2,International Long-Haul Aviation Bookings,32.2 International Long-Haul Aviation Bookings
+32,Aviation Logistics & Holiday Accommodation,32.3,"Commercial Hotel, Resort, & Motel Accommodations","32.3 Commercial Hotel, Resort, & Motel Accommodations"
+32,Aviation Logistics & Holiday Accommodation,32.4,Peer-to-Peer Vacation Accommodation Platforms (Airbnb),32.4 Peer-to-Peer Vacation Accommodation Platforms (Airbnb)
+32,Aviation Logistics & Holiday Accommodation,32.5,Specialized Travel Agency Booking & Holiday Package Fees,32.5 Specialized Travel Agency Booking & Holiday Package Fees
+33,"Live Events, Cinema & Cultural Entertainment",33.1,Major Stadium Concert & Touring Music Festival Bookings,33.1 Major Stadium Concert & Touring Music Festival Bookings
+33,"Live Events, Cinema & Cultural Entertainment",33.2,"Live Commercial Theatre, Opera, & Performing Arts Tickets","33.2 Live Commercial Theatre, Opera, & Performing Arts Tickets"
+33,"Live Events, Cinema & Cultural Entertainment",33.3,Cinema Box Office Tickets & Gold Class Surcharges,33.3 Cinema Box Office Tickets & Gold Class Surcharges
+33,"Live Events, Cinema & Cultural Entertainment",33.4,"Museum, Art Gallery, & Zoological Exhibition Entry Fees","33.4 Museum, Art Gallery, & Zoological Exhibition Entry Fees"
+33,"Live Events, Cinema & Cultural Entertainment",33.5,Amusement Park & Specialized Local Attraction Passes,33.5 Amusement Park & Specialized Local Attraction Passes
+34,"Digital Gaming, Interactive Software & Console Ecosystems",34.1,Interactive Network Subscription Passes,34.1 Interactive Network Subscription Passes
+34,"Digital Gaming, Interactive Software & Console Ecosystems",34.2,Direct Micro-Transaction / In-Game Digital Content Ingest,34.2 Direct Micro-Transaction / In-Game Digital Content Ingest
+34,"Digital Gaming, Interactive Software & Console Ecosystems",34.3,PC Gaming Software Distribution Portal Purchases (Steam),34.3 PC Gaming Software Distribution Portal Purchases (Steam)
+34,"Digital Gaming, Interactive Software & Console Ecosystems",34.4,Console Hardware Accessory & Physical Software Retail,34.4 Console Hardware Accessory & Physical Software Retail
+34,"Digital Gaming, Interactive Software & Console Ecosystems",34.5,Smartphone App Store Premium App & Game Ingest,34.5 Smartphone App Store Premium App & Game Ingest
+35,"Books, News Media & Educational Print Subscriptions",35.1,"Digital News Platform Subscriptions (The AFR, SMH, Australian)","35.1 Digital News Platform Subscriptions (The AFR, SMH, Australian)"
+35,"Books, News Media & Educational Print Subscriptions",35.2,Traditional Print Newspaper & Magazine Home Delivery,35.2 Traditional Print Newspaper & Magazine Home Delivery
+35,"Books, News Media & Educational Print Subscriptions",35.3,Physical Bookstores & Independent Specialty Literature Retailers,35.3 Physical Bookstores & Independent Specialty Literature Retailers
+35,"Books, News Media & Educational Print Subscriptions",35.4,Audio-Book Platform Subscriptions (Audible),35.4 Audio-Book Platform Subscriptions (Audible)
+35,"Books, News Media & Educational Print Subscriptions",35.5,Specialized Academic Journal Database Access Fees,35.5 Specialized Academic Journal Database Access Fees
+36,"Residential Furnishings, Homewares & Home Decor",36.1,"Major Furniture Retail Showrooms (IKEA, Freedom, Nick Scali)","36.1 Major Furniture Retail Showrooms (IKEA, Freedom, Nick Scali)"
+36,"Residential Furnishings, Homewares & Home Decor",36.2,"Specialty Manchester, Bedding, & Linen Stores","36.2 Specialty Manchester, Bedding, & Linen Stores"
+36,"Residential Furnishings, Homewares & Home Decor",36.3,"Kitchenware, Tableware, & Small Appliance Specialty Stores","36.3 Kitchenware, Tableware, & Small Appliance Specialty Stores"
+36,"Residential Furnishings, Homewares & Home Decor",36.4,"Interior Lighting, Soft Furnishings, & Rug Retailers","36.4 Interior Lighting, Soft Furnishings, & Rug Retailers"
+36,"Residential Furnishings, Homewares & Home Decor",36.5,"Premium Artistic Decor, Prints, & Framing Services","36.5 Premium Artistic Decor, Prints, & Framing Services"
+37,"Hardware, DIY Property Maintenance & Gardening Supply",37.1,"Major Hardware Warehouses (Bunnings Warehouse, Mitre 10)","37.1 Major Hardware Warehouses (Bunnings Warehouse, Mitre 10)"
+37,"Hardware, DIY Property Maintenance & Gardening Supply",37.2,Specialized Garden Nurseries & Landscape Material Outlets,37.2 Specialized Garden Nurseries & Landscape Material Outlets
+37,"Hardware, DIY Property Maintenance & Gardening Supply",37.3,Hand & Power Tool Purchase / Equipment Hire Services,37.3 Hand & Power Tool Purchase / Equipment Hire Services
+37,"Hardware, DIY Property Maintenance & Gardening Supply",37.4,"Electrical, Plumbing, & Structural Hardware Fasteners","37.4 Electrical, Plumbing, & Structural Hardware Fasteners"
+37,"Hardware, DIY Property Maintenance & Gardening Supply",37.5,"Home Security Systems, Locks, & Safe Storage Retail","37.5 Home Security Systems, Locks, & Safe Storage Retail"
+38,"Consumer Electronics, Computers & Major Appliances",38.1,"Major Technology Retail Networks (JB Hi-Fi, Harvey Norman)","38.1 Major Technology Retail Networks (JB Hi-Fi, Harvey Norman)"
+38,"Consumer Electronics, Computers & Major Appliances",38.2,Official Brand Computer Store Infrastructure (Apple Store),38.2 Official Brand Computer Store Infrastructure (Apple Store)
+38,"Consumer Electronics, Computers & Major Appliances",38.3,"Whitegoods, Laundry, & Cooking Major Appliance Specialists","38.3 Whitegoods, Laundry, & Cooking Major Appliance Specialists"
+38,"Consumer Electronics, Computers & Major Appliances",38.4,"Specialized Camera, Imaging, & Drone Retail Outlets","38.4 Specialized Camera, Imaging, & Drone Retail Outlets"
+38,"Consumer Electronics, Computers & Major Appliances",38.5,Premium Smart-Home Automation & Audio Component Systems,38.5 Premium Smart-Home Automation & Audio Component Systems
+39,"Personal Grooming, Hairdressing & Aesthetic Salons",39.1,Hairdressing & Specialized Barber Salon Services,39.1 Hairdressing & Specialized Barber Salon Services
+39,"Personal Grooming, Hairdressing & Aesthetic Salons",39.2,"Specialty Nail, Brow, & Lash Aesthetic Styling Salons","39.2 Specialty Nail, Brow, & Lash Aesthetic Styling Salons"
+39,"Personal Grooming, Hairdressing & Aesthetic Salons",39.3,Day Spa Massage & Body Therapy Clinics,39.3 Day Spa Massage & Body Therapy Clinics
+39,"Personal Grooming, Hairdressing & Aesthetic Salons",39.4,"Advanced Clinical Laser, Skin & Dermal Therapeutics","39.4 Advanced Clinical Laser, Skin & Dermal Therapeutics"
+39,"Personal Grooming, Hairdressing & Aesthetic Salons",39.5,Specialized Tanning Salons & Piercing Studios,39.5 Specialized Tanning Salons & Piercing Studios
+40,"Wagering, Gaming & Regulated Lottery Facilities",40.1,"Digital Sports Bookmaker Wagering Apps (Sportsbet, Tabcorp)","40.1 Digital Sports Bookmaker Wagering Apps (Sportsbet, Tabcorp)"
+40,"Wagering, Gaming & Regulated Lottery Facilities",40.2,Official State Lottery & Scratchie Ticket Retail (The Lott),40.2 Official State Lottery & Scratchie Ticket Retail (The Lott)
+40,"Wagering, Gaming & Regulated Lottery Facilities",40.3,In-Venue Casino Gaming & Table Allocations,40.3 In-Venue Casino Gaming & Table Allocations
+40,"Wagering, Gaming & Regulated Lottery Facilities",40.4,Community Sports Club RSL Pokie Venue Ingest,40.4 Community Sports Club RSL Pokie Venue Ingest
+40,"Wagering, Gaming & Regulated Lottery Facilities",40.5,Charitable Enterprise Art Union Raffle Packages,40.5 Charitable Enterprise Art Union Raffle Packages
+41,"Postal, Shipping & Logistics Services",41.1,Australia Post Retail Outlet Over-The-Counter Transactions,41.1 Australia Post Retail Outlet Over-The-Counter Transactions
+41,"Postal, Shipping & Logistics Services",41.2,Domestic Courier & Package Delivery Freight Providers,41.2 Domestic Courier & Package Delivery Freight Providers
+41,"Postal, Shipping & Logistics Services",41.3,Private Mailbox Rentals & Corporate P.O. Box Fees,41.3 Private Mailbox Rentals & Corporate P.O. Box Fees
+41,"Postal, Shipping & Logistics Services",41.4,"Specialized Packing, Moving, & Bubble Wrap Material Supply","41.4 Specialized Packing, Moving, & Bubble Wrap Material Supply"
+41,"Postal, Shipping & Logistics Services",41.5,International Air Freight & Custom Customs Broker Handling Fees,41.5 International Air Freight & Custom Customs Broker Handling Fees
+42,Non-Store Broad Digital E-Commerce Retailing,42.1,Broad E-Commerce Platform Direct Ingestion (Amazon Retail),42.1 Broad E-Commerce Platform Direct Ingestion (Amazon Retail)
+42,Non-Store Broad Digital E-Commerce Retailing,42.2,"Online Marketplace 3rd-Party Networks (Amazon Marketplace, eBay)","42.2 Online Marketplace 3rd-Party Networks (Amazon Marketplace, eBay)"
+42,Non-Store Broad Digital E-Commerce Retailing,42.3,"Daily Deal Flash-Sale Discounter Platforms (Catch, Kogan)","42.3 Daily Deal Flash-Sale Discounter Platforms (Catch, Kogan)"
+42,Non-Store Broad Digital E-Commerce Retailing,42.4,"International Import E-Commerce Gateways (Temu, AliExpress)","42.4 International Import E-Commerce Gateways (Temu, AliExpress)"
+42,Non-Store Broad Digital E-Commerce Retailing,42.5,Specialized Private Seller Classified Transactions,42.5 Specialized Private Seller Classified Transactions
+43,"Automotive Maintenance, Repairs & Roadside Logistics",43.1,Scheduled Logbook Vehicle Servicing & Mechanical Repairs,43.1 Scheduled Logbook Vehicle Servicing & Mechanical Repairs
+43,"Automotive Maintenance, Repairs & Roadside Logistics",43.2,Specialized Tyre Replacement & Alignment Centers (Bob Jane),43.2 Specialized Tyre Replacement & Alignment Centers (Bob Jane)
+43,"Automotive Maintenance, Repairs & Roadside Logistics",43.3,Mandatory State Vehicle Inspection Safetys (Pink/Blue Slips),43.3 Mandatory State Vehicle Inspection Safetys (Pink/Blue Slips)
+43,"Automotive Maintenance, Repairs & Roadside Logistics",43.4,"State Roadside Assistance Auto Club Memberships (NRMA, RACV)","43.4 State Roadside Assistance Auto Club Memberships (NRMA, RACV)"
+43,"Automotive Maintenance, Repairs & Roadside Logistics",43.5,Auto Parts & Lubricant Specialty Retail Networks (Supercheap Auto),43.5 Auto Parts & Lubricant Specialty Retail Networks (Supercheap Auto)
+44,"Urban Parking, Public Storage & Space Leasing",44.1,"Commercial Inner-City Parking Station Networks (Secure, Wilson)","44.1 Commercial Inner-City Parking Station Networks (Secure, Wilson)"
+44,"Urban Parking, Public Storage & Space Leasing",44.2,Short-Term Street Smart-Meter Commuter Apps (EasyPark),44.2 Short-Term Street Smart-Meter Commuter Apps (EasyPark)
+44,"Urban Parking, Public Storage & Space Leasing",44.3,Airport Long-Term Secure Parking Infrastructure,44.3 Airport Long-Term Secure Parking Infrastructure
+44,"Urban Parking, Public Storage & Space Leasing",44.4,Private Self-Storage Unit Facilities (National Storage),44.4 Private Self-Storage Unit Facilities (National Storage)
+44,"Urban Parking, Public Storage & Space Leasing",44.5,Urban Boat Mooring & Caravan Storage Yard Levies,44.5 Urban Boat Mooring & Caravan Storage Yard Levies
+45,Organized Amateur Sports Subscriptions & Club Memberships,45.1,Elite Professional National Sporting Club Memberships,45.1 Elite Professional National Sporting Club Memberships
+45,Organized Amateur Sports Subscriptions & Club Memberships,45.2,Local Community Amateur Sports Club Seasonal Registration Fees,45.2 Local Community Amateur Sports Club Seasonal Registration Fees
+45,Organized Amateur Sports Subscriptions & Club Memberships,45.3,Mandatory Junior / Senior State Association Player Insurance,45.3 Mandatory Junior / Senior State Association Player Insurance
+45,Organized Amateur Sports Subscriptions & Club Memberships,45.4,Specialized Indoor Sports Center Weekly Team Match Fees,45.4 Specialized Indoor Sports Center Weekly Team Match Fees
+45,Organized Amateur Sports Subscriptions & Club Memberships,45.5,Specialized Performance Sporting Gear & Equipment Team Retail,45.5 Specialized Performance Sporting Gear & Equipment Team Retail
+46,"Toys, Hobbyist Crafts & Specialized Entertainment Retail",46.1,Specialized Toy Department Stores & Toy Superstores (Toyworld),46.1 Specialized Toy Department Stores & Toy Superstores (Toyworld)
+46,"Toys, Hobbyist Crafts & Specialized Entertainment Retail",46.2,"Hobbyist Craft, Fabric, & Sewing Superstores (Spotlight)","46.2 Hobbyist Craft, Fabric, & Sewing Superstores (Spotlight)"
+46,"Toys, Hobbyist Crafts & Specialized Entertainment Retail",46.3,"Specialized Model, Board Game, & Miniature Hobby Stores","46.3 Specialized Model, Board Game, & Miniature Hobby Stores"
+46,"Toys, Hobbyist Crafts & Specialized Entertainment Retail",46.4,Musical Instrument Retail Showrooms & Sheet Music Shops,46.4 Musical Instrument Retail Showrooms & Sheet Music Shops
+46,"Toys, Hobbyist Crafts & Specialized Entertainment Retail",46.5,Specialized Art Material & Framing Supply Outlets,46.5 Specialized Art Material & Framing Supply Outlets
+47,Philanthropic Charitable Donations & Regular Givings,47.1,Automated Monthly Direct-Debit Philanthropic Subscriptions,47.1 Automated Monthly Direct-Debit Philanthropic Subscriptions
+47,Philanthropic Charitable Donations & Regular Givings,47.2,One-Off Disaster Relief Humanitarian Donations,47.2 One-Off Disaster Relief Humanitarian Donations
+47,Philanthropic Charitable Donations & Regular Givings,47.3,Medical Research Institutional Foundation Contributions,47.3 Medical Research Institutional Foundation Contributions
+47,Philanthropic Charitable Donations & Regular Givings,47.4,"Environmental, Wildlife, & Animal Protection Contributions","47.4 Environmental, Wildlife, & Animal Protection Contributions"
+47,Philanthropic Charitable Donations & Regular Givings,47.5,Local Religious / Community Group Direct Tithing Outlays,47.5 Local Religious / Community Group Direct Tithing Outlays
+48,Professional Trade Unions & Industry Association Fees,48.1,Registered Industrial Trade Union Fortnightly Direct Debits,48.1 Registered Industrial Trade Union Fortnightly Direct Debits
+48,Professional Trade Unions & Industry Association Fees,48.2,"Professional Industry Regulatory Registration Boards (AHPRA, CPA)","48.2 Professional Industry Regulatory Registration Boards (AHPRA, CPA)"
+48,Professional Trade Unions & Industry Association Fees,48.3,Local Business Chambers & Specialized Industry Networking Groups,48.3 Local Business Chambers & Specialized Industry Networking Groups
+48,Professional Trade Unions & Industry Association Fees,48.4,Specialized Scientific / Medical Fellowship Annual Contributions,48.4 Specialized Scientific / Medical Fellowship Annual Contributions
+48,Professional Trade Unions & Industry Association Fees,48.5,Professional Portfolio & Work Event Representation Levies,48.5 Professional Portfolio & Work Event Representation Levies
+49,"Specialized Baby, Infant & Pregnancy Support Retail",49.1,Baby Specialized Nursery Furniture & Stroller Showrooms,49.1 Baby Specialized Nursery Furniture & Stroller Showrooms
+49,"Specialized Baby, Infant & Pregnancy Support Retail",49.2,"Specialized Infant Formula, Diaper & Consumable Bulk Packs","49.2 Specialized Infant Formula, Diaper & Consumable Bulk Packs"
+49,"Specialized Baby, Infant & Pregnancy Support Retail",49.3,Specialized Maternity Fashion & Specialized Pregnancy Apparel Retail,49.3 Specialized Maternity Fashion & Specialized Pregnancy Apparel Retail
+49,"Specialized Baby, Infant & Pregnancy Support Retail",49.4,"Lactation, Doula, & Post-Natal Midwifery Support Consultation Outlays","49.4 Lactation, Doula, & Post-Natal Midwifery Support Consultation Outlays"
+49,"Specialized Baby, Infant & Pregnancy Support Retail",49.5,"Specialized Toddler Safety Equipment, Gates & Car Seat Supply","49.5 Specialized Toddler Safety Equipment, Gates & Car Seat Supply"
+50,Professional Property Trade Contractors & Handyman Labor Services,50.1,Licensed Electrical Installation & Emergency Callout Services,50.1 Licensed Electrical Installation & Emergency Callout Services
+50,Professional Property Trade Contractors & Handyman Labor Services,50.2,"Licensed Plumbing, Drainage, & Gasfitting Trades","50.2 Licensed Plumbing, Drainage, & Gasfitting Trades"
+50,Professional Property Trade Contractors & Handyman Labor Services,50.3,"Building Carpentry, Gyprock, & Structural Property Handymen","50.3 Building Carpentry, Gyprock, & Structural Property Handymen"
+50,Professional Property Trade Contractors & Handyman Labor Services,50.4,Professional Residential Interior/Exterior Painting Contractors,50.4 Professional Residential Interior/Exterior Painting Contractors
+50,Professional Property Trade Contractors & Handyman Labor Services,50.5,Specialized Scheduled Lawn Mowing & Gardening Labor Operations,50.5 Specialized Scheduled Lawn Mowing & Gardening Labor Operations

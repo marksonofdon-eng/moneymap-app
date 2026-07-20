@@ -10,11 +10,18 @@ type TxClient = Prisma.TransactionClient;
 export async function withOwnerContext<T>(
   ownerUserId: string,
   fn: (tx: TxClient) => Promise<T>,
+  options?: { timeoutMs?: number },
 ): Promise<T> {
-  return prisma.$transaction(async (tx) => {
-    await tx.$executeRaw`SELECT set_config('app.current_user_id', ${ownerUserId}, true)`;
-    return fn(tx);
-  });
+  return prisma.$transaction(
+    async (tx) => {
+      await tx.$executeRaw`SELECT set_config('app.current_user_id', ${ownerUserId}, true)`;
+      return fn(tx);
+    },
+    {
+      maxWait: options?.timeoutMs ?? 10_000,
+      timeout: options?.timeoutMs ?? 10_000,
+    },
+  );
 }
 
 /** Ingest client: uses BYPASSRLS role when INGEST_DATABASE_URL is set. */

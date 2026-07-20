@@ -13,6 +13,7 @@ import {
   internetBillScanItem,
   pendingExpenseScanItems,
 } from "@/components/BillSavingsScan";
+import { FinancialHealthCheck } from "@/components/FinancialHealthCheck";
 import { SavingsJourneyTimeline } from "@/components/SavingsJourneyTimeline";
 import { AppClientActions } from "./AppClientActions";
 import { LinkedBanner } from "./LinkedBanner";
@@ -58,15 +59,17 @@ export default async function AppPage({
   const txCount = await countTransactionsForOwner(ownerUserId);
   const internetSavings = await getInternetSavingsState(ownerUserId);
 
-  const totalBalance = accounts.reduce((sum, a) => {
-    const n = a.balance != null ? Number(a.balance.toString()) : 0;
-    return sum + (Number.isFinite(n) ? n : 0);
-  }, 0);
-
   const billScanItems = [
-    internetBillScanItem(internetSavings.bill),
+    internetBillScanItem(internetSavings.bill, {
+      intakeReady: internetSavings.intakeReady,
+      recommendation: internetSavings.recommendation,
+    }),
     ...pendingExpenseScanItems(),
   ];
+
+  const recommendationDone =
+    internetSavings.recommendation?.outcome === "ALREADY_BEST" ||
+    internetSavings.recommendation?.outcome === "SWITCH_RECOMMENDED";
 
   return (
     <div className="shell">
@@ -77,41 +80,11 @@ export default async function AppPage({
       </AppHeader>
 
       <main className="main">
-        <div className="panel">
-          <div className="panel-head">
-            <h1 className="page-title">
-              Welcome{user.name ? `, ${user.name}` : ""}
-            </h1>
-          </div>
-
+        <div className="page-welcome">
+          <h1 className="page-title">
+            Welcome{user.name ? `, ${user.name}` : ""}
+          </h1>
           {params.linked ? <LinkedBanner /> : null}
-
-          <div className="stat-row">
-            <div className="stat">
-              <div className="stat-label">
-                <span className="muted">Linked Accounts</span>
-                {accounts.length > 0 ? (
-                  <AppClientActions mode="consent" hasAccounts />
-                ) : null}
-              </div>
-              <strong>{accounts.length}</strong>
-            </div>
-            <div className="stat">
-              <div className="stat-label">
-                <span className="muted">Transactions</span>
-                <AppClientActions mode="export" canExport={txCount > 0} />
-              </div>
-              <strong>{txCount}</strong>
-            </div>
-            <div className="stat">
-              <span className="muted">Total balance</span>
-              <strong style={{ fontSize: "1.25rem" }}>
-                {accounts.length
-                  ? formatMoney(totalBalance, accounts[0]?.currency || "AUD")
-                  : "—"}
-              </strong>
-            </div>
-          </div>
         </div>
 
         <SavingsJourneyTimeline
@@ -119,6 +92,36 @@ export default async function AppPage({
           hasDetectedBill={internetSavings.hasDetectedBill}
           billConfirmed={internetSavings.bill?.status === "CONFIRMED"}
           intakeReady={internetSavings.intakeReady}
+          recommendationDone={recommendationDone}
+          accountCount={accounts.length}
+          txCount={txCount}
+          billCount={billScanItems.filter((item) => item.tone !== "red").length}
+          actions={
+            <>
+              {accounts.length > 0 ? (
+                <AppClientActions mode="consent" hasAccounts />
+              ) : (
+                <>
+                  {allowAttachLocal ? (
+                    <AppClientActions mode="attach" canAttachLocal />
+                  ) : null}
+                  <AppClientActions mode="consent" hasAccounts={false} />
+                </>
+              )}
+              <AppClientActions
+                mode="import"
+                canImport={Boolean(user.basiqUserId)}
+              />
+              <AppClientActions mode="rescan" canRescan={txCount > 0} />
+              <AppClientActions mode="export" canExport={txCount > 0} />
+            </>
+          }
+        />
+
+        <BillSavingsScan items={billScanItems} />
+
+        <FinancialHealthCheck
+          memberName={user.name?.trim().split(/\s+/)[0] || "Mark"}
         />
 
         <CollapsibleSection
@@ -127,16 +130,12 @@ export default async function AppPage({
           icon={<BankIcon />}
           title={
             accounts.length > 0
-              ? `${accounts.length} bank account${accounts.length === 1 ? "" : "s"} connected`
+              ? `${accounts.length} bank account${accounts.length === 1 ? "" : "s"} connected · ${txCount.toLocaleString("en-AU")} transaction${txCount === 1 ? "" : "s"} found`
               : "Connect a bank to get started"
           }
           headingId="linked-accounts-heading"
           defaultOpen
-          summary={
-            accounts.length > 0
-              ? `Total ${formatMoney(totalBalance, accounts[0]?.currency || "AUD")}`
-              : "No accounts linked"
-          }
+          summary={accounts.length > 0 ? undefined : "No accounts linked"}
         >
           {accounts.length === 0 ? (
             <div className="empty">
@@ -144,12 +143,6 @@ export default async function AppPage({
                 No bank accounts yet. Link a bank to pull balances and
                 transactions into MoneyMap.
               </p>
-              <div className="actions" style={{ marginTop: 0 }}>
-                {allowAttachLocal ? (
-                  <AppClientActions mode="attach" canAttachLocal />
-                ) : null}
-                <AppClientActions mode="consent" hasAccounts={false} />
-              </div>
             </div>
           ) : (
             <ul className="account-list">
@@ -181,8 +174,6 @@ export default async function AppPage({
           )}
         </CollapsibleSection>
 
-        <BillSavingsScan items={billScanItems} />
-
         {recentTransactions.length > 0 ? (
           <CollapsibleSection
             className="transactions-section"
@@ -191,7 +182,6 @@ export default async function AppPage({
             title={`Last ${recentTransactions.length} from your linked accounts`}
             headingId="recent-transactions-heading"
             defaultOpen
-            summary={`Showing ${recentTransactions.length} recent`}
           >
             <ul className="tx-list">
               {recentTransactions.map((tx) => {
@@ -201,6 +191,10 @@ export default async function AppPage({
                     ? -Math.abs(amount)
                     : Math.abs(amount);
                 const currency = tx.account.currency || "AUD";
+                const categoryLabel =
+                  tx.expenseCategory && tx.parentCategory
+                    ? `${tx.parentCategory} · ${tx.expenseCategory}`
+                    : tx.expenseCategory || tx.parentCategory || null;
                 const label =
                   tx.direction === "debit"
                     ? `Payment · ${tx.account.name || "Account"}`
@@ -210,7 +204,10 @@ export default async function AppPage({
                   <li key={tx.transactionId} className="tx-row">
                     <div className="tx-main">
                       <strong>{label}</strong>
-                      <span className="muted">{formatDate(tx.postDate)}</span>
+                      <span className="muted">
+                        {formatDate(tx.postDate)}
+                        {categoryLabel ? ` · ${categoryLabel}` : ""}
+                      </span>
                     </div>
                     <strong
                       className={

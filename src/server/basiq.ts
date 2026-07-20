@@ -137,6 +137,57 @@ export async function basiqFetchJson(urlOrPath: string, accessToken: string) {
   return response.json();
 }
 
+export type CreateIncomeSummaryOptions = {
+  accounts?: string[];
+  fromMonth?: string;
+  toMonth?: string;
+};
+
+/**
+ * Create a Basiq Income summary for a user.
+ * POST /users/{userId}/income
+ */
+export async function createIncomeSummary(
+  basiqUserId: string,
+  opts?: CreateIncomeSummaryOptions,
+) {
+  const accessToken = await getServerAccessToken();
+  const body: Record<string, unknown> = {};
+  if (opts?.accounts?.length) body.accounts = opts.accounts;
+  if (opts?.fromMonth) body.fromMonth = opts.fromMonth;
+  if (opts?.toMonth) body.toMonth = opts.toMonth;
+
+  const res = await fetch(`${BASIQ_BASE_URL}/users/${basiqUserId}/income`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "basiq-version": BASIQ_VERSION,
+    },
+    body: Object.keys(body).length > 0 ? JSON.stringify(body) : undefined,
+  });
+
+  if (res.status === 204) {
+    return null;
+  }
+
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(`Basiq createIncome failed (${res.status}): ${text}`);
+  }
+  return JSON.parse(text) as Record<string, unknown>;
+}
+
+/** GET /users/{userId}/income/{incomeId} */
+export async function getIncomeSummary(basiqUserId: string, incomeId: string) {
+  const accessToken = await getServerAccessToken();
+  return basiqFetchJson(
+    `/users/${basiqUserId}/income/${incomeId}`,
+    accessToken,
+  ) as Promise<Record<string, unknown>>;
+}
+
 export function buildConsentBrowserLink(clientAccessToken: string) {
   return `https://consent.basiq.io/home?token=${clientAccessToken}`;
 }

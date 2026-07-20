@@ -4,6 +4,10 @@ import {
   detectInternetBillSeries,
   matchInternetProvider,
 } from "@/server/internetBills/detector";
+import {
+  INTERNET_BASIQ_L3,
+  INTERNET_BASIQ_L4,
+} from "@/server/taxonomy/pillMap";
 
 const LOOKBACK_DAYS = 400;
 
@@ -93,6 +97,8 @@ export async function detectInternetBillsForOwner(
         create: {
           ownerUserId,
           category: "INTERNET",
+          groupCode: INTERNET_BASIQ_L3,
+          subclassCode: INTERNET_BASIQ_L4,
           seriesKey: detection.seriesKey,
           providerKey: detection.providerKey,
           providerName: detection.providerName,
@@ -108,6 +114,8 @@ export async function detectInternetBillsForOwner(
           matcherVersion: detection.matcherVersion,
         },
         update: {
+          groupCode: INTERNET_BASIQ_L3,
+          subclassCode: INTERNET_BASIQ_L4,
           providerKey: detection.providerKey,
           providerName: detection.providerName,
           estimatedMonthlyCostAud: new Prisma.Decimal(

@@ -1,0 +1,9 @@
+basiq_tx_class,parent_category,income_category,flow_type,notes
+direct-credit,Income,Direct Credits,INCOME,Generic inbound deposit; refine with keywords or Income API
+transfer,Income,Transfers In,TRANSFER,Inbound account transfer
+refund,Income,Refunds,INCOME,Merchant or bank refund
+interest,Income,Interest,INCOME,Interest earned
+loan-repayment,Income,Loan Credits,INCOME,Credit posted to a loan account
+payment,Income,Other Credits,INCOME,Unusual credit tagged as payment
+cash-deposit,Income,Cash Deposits,INCOME,Cash deposited at branch/ATM
+bank-fee,Income,Fee Reversals,OTHER,Fee reversal credit when applicable

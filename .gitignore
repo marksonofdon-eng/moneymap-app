@@ -8,3 +8,9 @@ dist/
 prisma/*.db
 prisma/*.db-journal
 tsconfig.tsbuildinfo
+models/category-clf/
+all_categorised_transactions_*.csv
+uncategorised_transactions*.csv
+basiq_original_transactions_*.csv
+missing_basiq_subclasses.csv
+*.xlsx

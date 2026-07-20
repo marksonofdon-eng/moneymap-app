@@ -4,6 +4,7 @@ import {
   detectInternetBillsForOwner,
   listInternetBillsForOwner,
 } from "@/server/data/internetBills";
+import { detectRecurringBillsForOwner } from "@/server/data/recurringBills";
 
 /**
  * GET — inspect internet bills detected for the signed-in admin's transactions.
@@ -25,14 +26,19 @@ export async function GET() {
 }
 
 /**
- * POST — rerun the explainable recurring ISP detector, then return its results.
+ * POST — rerun categoriser + recurring detection (internet + other), then return ISP bills.
+ * Query `?internetOnly=1` keeps the legacy internet-only detector path.
  */
-export async function POST() {
+export async function POST(request: Request) {
   const admin = await requireAdmin();
   if (!admin.ok) return admin.response;
 
   try {
-    const run = await detectInternetBillsForOwner(admin.user.id);
+    const internetOnly =
+      new URL(request.url).searchParams.get("internetOnly") === "1";
+    const run = internetOnly
+      ? await detectInternetBillsForOwner(admin.user.id)
+      : await detectRecurringBillsForOwner(admin.user.id);
     const bills = await listInternetBillsForOwner(admin.user.id);
     return NextResponse.json({ run, bills });
   } catch (error) {
